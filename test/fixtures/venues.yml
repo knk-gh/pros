@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venue_name: MyString
+  postal_code: 1
+  address: MyText
+  tel: 1
+  venue_url: MyString
+  latitude: 1.5
+  longitude: 1.5
+  deleted_at: 2018-11-06 06:06:30
+
+two:
+  venue_name: MyString
+  postal_code: 1
+  address: MyText
+  tel: 1
+  venue_url: MyString
+  latitude: 1.5
+  longitude: 1.5
+  deleted_at: 2018-11-06 06:06:30

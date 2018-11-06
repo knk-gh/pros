@@ -1,0 +1,2 @@
+module FavoriteVenuesHelper
+end

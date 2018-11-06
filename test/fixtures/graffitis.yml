@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  graffiti_image_id: MyString
+  graffiti_text: MyText
+  deleted_at: 2018-11-06 06:08:36
+
+two:
+  user_id: 1
+  graffiti_image_id: MyString
+  graffiti_text: MyText
+  deleted_at: 2018-11-06 06:08:36

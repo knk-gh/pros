@@ -1,0 +1,2 @@
+module FavoritePrintsHelper
+end
