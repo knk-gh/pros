@@ -1,0 +1,159 @@
+.user_show {
+	width:100%;
+	background-color: gold;
+}
+
+.user_show_main {
+	width:80%;
+	float: left;
+	background-color: red;
+}
+
+.user_show_box1 {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.user_show_box1_title {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 15px;
+	background-color: blue;
+}
+
+.progress_box {
+	width: 80%;
+	height: 100px;
+	margin: 0 auto;
+	background-color: pink;
+}
+
+.progress_box_l {
+	width: 85%;
+	height: 100px;
+	float: left;
+	background-color: #fff;
+}
+
+.progress_box_r {
+	width: 15%;
+	height: 100px;
+	float: left;
+	background-color: aqua;
+}
+
+.user_show_box2 {
+	width: 80%;
+	margin: 0 auto;
+	background-color: hotpink;
+}
+
+.user_show_box2_title {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 15px;
+}
+
+.fav_print {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.fav_print_box {
+	width: 200px;
+	height: 150px;
+	text-align: center;
+	background-color: ivory;
+}
+
+.user_show_box3 {
+	width: 80%;
+	margin: 0 auto;
+	background-color: yellowgreen;
+}
+
+.user_show_box3_title {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 15px;
+}
+
+
+
+/*--sidebar-------------------------------------*/
+
+.side_bar {
+	width: 20%;
+	height: 100vh;
+	float: left;
+	background-color: blue;
+}
+
+.side_image {
+	width: 90%;
+	height: 200px;
+	margin: 15px auto 10px;
+	background-color: green;
+}
+
+.side_name {
+	width: 90%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	margin: 10px auto;
+	background-color: yellow;
+}
+
+.side_prof {
+	width: 90%;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	margin: 10px auto;
+	background-color: pink;
+}
+
+.side_fav {
+	width: 90%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin: 10px auto;
+	background-color: hotpink;
+}
+
+.side_ikinuki {
+	width: 90%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin: 10px auto;
+	background-color: violet;
+}
+
+.side_ikinuki_image {
+	width: 90%;
+	height: 150px;
+	line-height: 150px;
+	text-align: center;
+	margin: 10px auto;
+	background-color: plum;
+}
+
+.side_motto {
+	width: 90%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin: 10px auto;
+	background-color: purple;
+}
+
+
+
+
+
+

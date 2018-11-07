@@ -1,3 +1,79 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user_pass_edit {
+	width: 100%;
+	background-color: gold;
+}
+
+.user_pass_edit_main {
+	width: 80%;
+	float: left;
+	background-color: lightsalmon;
+}
+
+/*-index--------------------------------------------------*/
+
+.user_index {
+	width: 100%;
+}
+
+.user_index_h_p {
+	text-align: center;
+	padding: 15px;
+}
+
+.user_index_main {
+	width: 50%;
+	height: 60px;
+	margin: 20px auto;
+	background-color: lightsalmon;
+}
+
+.user_index_id {
+	width: 10%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	float: left;
+	background-color: red;
+}
+
+.user_index_image {
+	width: 15%;
+	height: 60px;
+	text-align: center;
+	float: left;
+	background-color: gold;
+}
+
+.user_index_prof {
+	width: 55%;
+	height: 60px;
+	float: left;
+	background-color: lime;
+}
+
+.user_index_prof_name {
+	height: 20px;
+	line-height: 20px;
+	background-color: lime;
+}
+
+.user_index_prof_text {
+	height: 40px;
+	line-height: 40px;
+	background-color: green;
+}
+
+.user_index_btn {
+	width: 20%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	float: left;
+	background-color: deepskyblue;
+}
+
+

@@ -1,6 +1,17 @@
-最初のページ
+<div class="home_index clearfix">
 
-<%= link_to "ログイン", user_session_path %>
-<%= link_to "新規登録", new_user_registration_path %>
-<%= link_to "退会する", user_registration_path, method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+	<div class="home_index_l">
+		最初のページ
+	</div>
 
+	<div class="home_index_r">
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<p class="home_index_p1">
+			<%= link_to "ログイン", user_session_path %>
+		</p><br>
+		<p>
+			<%= link_to "新規登録", new_user_registration_path %>
+		</p>
+	</div>
+
+</div>

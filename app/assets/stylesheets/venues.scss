@@ -1,3 +1,31 @@
 // Place all the styles related to the venues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*--new-----------------------------------------------*/
+
+.venue_new {
+	width: 100%;
+	background-color: gold;
+}
+
+.venue_new_main {
+	width: 80%;
+	float: left;
+	background-color: lightsalmon;
+}
+
+.venue_new_box {
+	width: 50%;
+	margin: 15px auto;
+	background-color: ivory;
+}
+
+.venue_new_box p {
+	padding-left: 15px;
+}
+
+.venue_new_head {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}

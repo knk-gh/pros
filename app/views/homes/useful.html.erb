@@ -1,2 +1,61 @@
-<h1>Homes#useful</h1>
-<p>Find me in app/views/homes/useful.html.erb</p>
+<%= stylesheet_link_tag 'homes_useful' %>
+<div class="useful clearfix">
+
+	<div class="useful_main">
+		<div class="useful_box">
+
+			<p><b>お役立ち</b></p>
+			<p>よく使う印刷所や気になる印刷所、よく行く会場などお気に入りしますと<br>
+			マイページへ各種サイトや詳細ページへのリンクが追加されます。</p>
+
+			<div class="useful_print">
+				<div class="useful_print_title">
+					<b>印刷所</b>
+				</div>
+				<div class="useful_print_names">
+					<% @prints.each do |print| %>
+						<div class="useful_print_box clearfix">
+							<div class="useful_print_l">
+								<%= link_to print.company, print.company_url %>
+							</div>
+							<div class="useful_print_r">
+								<% if current_user.try(:admin?) %>
+									<%= link_to "編集", edit_print_path(print.id) %>
+									<%= link_to "削除", print_path(print.id), method: :delete, "data-confirm" => "この印刷所を削除します" %>
+								<% else %>
+									お気に入り
+								<% end %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="useful_venue">
+				<div class="useful_venue_title">
+					<b>会場</b>
+				</div>
+				<div class="useful_venue_names clearfix">
+					<div class="useful_venue_l">
+						東京ビッグサイト
+					</div>
+					<div class="useful_venue_r">
+						お気に入り
+					</div>
+				</div>
+				<div class="useful_venue_names clearfix">
+					<div class="useful_venue_l">
+						東京ビッグサイト
+					</div>
+					<div class="useful_venue_r">
+						お気に入り
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+	</div>
+<%= render 'users/side_r' %>

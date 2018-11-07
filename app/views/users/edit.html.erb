@@ -1,2 +1,31 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= stylesheet_link_tag 'users_edit' %>
+<div class="user_edit clearfix">
+	<div class="user_edit_main clearfix">
+		<div class="user_edit_l">
+			会員情報の変更
+			<div class="user_edit_box">
+				<p>名前</p>
+				<%= text_field :name, autofocus: true, autocomplete: 'name' %>
+				<p>メールアドレス</p>
+				<%= text_field :name, autofocus: true, autocomplete: 'name' %>
+				<p>Twitter URL</p>
+				<%= text_field :name, autofocus: true, autocomplete: 'name' %>
+				<p>Pixiv URL</p>
+				<%= text_field :name, autofocus: true, autocomplete: 'name' %>
+				<p>一言</p>
+				<%= text_field :name, autofocus: true, autocomplete: 'name' %>
+				<p>現在の状況</p>
+				<%= text_field :name, autofocus: true, autocomplete: 'name' %>
+				<%#= submit '更新' %>
+			</div>
+		</div>
+		<div class="user_edit_r">
+			<%= link_to "パスワード変更", edit_user_registration_path %><br><br>
+			<%= link_to "退会する", homes_goodbye_path %>
+		</div>
+	</div>
+
+
+
+
+<%= render 'users/side_r' %>

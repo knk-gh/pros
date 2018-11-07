@@ -1,3 +1,26 @@
 // Place all the styles related to the graffitis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*--new-----------------------------------------------*/
+
+.graffiti_new {
+	width: 100%;
+	background-color: gold;
+}
+
+.graffiti_new_main {
+	width: 80%;
+	float: left;
+	background-color: lightsalmon;
+}
+
+.graffiti_new_box {
+	width: 50%;
+	margin: 15px auto;
+	background-color: ivory;
+}
+
+.graffiti_new_head {
+	padding: 15px;
+}

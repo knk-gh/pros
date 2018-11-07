@@ -1,2 +1,51 @@
-<h1>Prints#new</h1>
-<p>Find me in app/views/prints/new.html.erb</p>
+<%= stylesheet_link_tag 'users_edit' %>
+<div class="print_new clearfix">
+
+	<div class="print_new_main">
+		<div class="print_new_box">
+
+			<div class="print_new_head">
+				<p><b>印刷所登録</b></p>
+			</div>
+
+			<%= form_for(@print) do |f| %>
+			<% if @print.errors.any? %>
+        		<%= @print.errors.count %>件のエラーが発生しました
+        		<% @print.errors.full_messages.each do |message| %>
+           	 		<%= message %>
+        		<% end %>
+    		<% end %>
+			<div class="print_new_name">
+				<p>印刷所名</p>
+				<%= f.text_field :company, autofocus: true, autocomplete: 'company' %>
+			</div>
+			<div class="print_new_url">
+				<p>印刷所サイトURL</p>
+				<%= f.text_field :company_url, autofocus: true, autocomplete: 'company_url' %>
+			</div>
+			<div class="print_new_btn">
+				<%= f.submit '登録', class: "btn btn-info" %>
+			</div>
+
+			<% end %>
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+<%= render 'users/side_r' %>

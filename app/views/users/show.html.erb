@@ -1,2 +1,48 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= stylesheet_link_tag 'users_show' %>
+<div class="user_show clearfix">
+	<div class="user_show_main">
+
+		<div class="user_show_box1">
+			<div class="user_show_box1_title">
+				創作進歩状況一覧
+			</div>
+			<div class="progress_box clearfix">
+				<div class="progress_box_l">ここメイン</div>
+				<div class="progress_box_r">詳細</div>
+			</div>
+		</div>
+
+		<div class="user_show_box2">
+			<div class="user_show_box2_title">
+				お気に入り印刷所
+			</div>
+			<div class="fav_print">
+				<div class="fav_print_box">
+					○○印刷所
+				</div>
+				<div class="fav_print_box">
+					○○印刷所
+				</div>
+				<div class="fav_print_box">
+					○○印刷所
+				</div>
+				<div class="fav_print_box">
+					○○印刷所
+				</div>
+				<div class="fav_print_box">
+					○○印刷所
+				</div>
+				<div class="fav_print_box">
+					○○印刷所
+				</div>
+			</div>
+		</div>
+
+		<div class="user_show_box3">
+			<div class="user_show_box3_title">
+				お気に入り会場
+			</div>
+		</div>
+
+	</div>
+<%= render 'users/side_r' %>
