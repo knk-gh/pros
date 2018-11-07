@@ -1,2 +1,57 @@
-<h1>Venues#edit</h1>
-<p>Find me in app/views/venues/edit.html.erb</p>
+<%= stylesheet_link_tag 'users_edit' %>
+<div class="venue_new clearfix">
+
+	<div class="venue_new_main">
+		<div class="venue_new_box">
+
+			<div class="venue_new_head">
+				<p><b>会場登録</b></p>
+			</div>
+			<div class="venue_new_name">
+				<p>会場名</p>
+				<%= text_field :venue_name, autofocus: true, autocomplete: 'venue_name' %>
+			</div>
+			<div class="venue_new_postal">
+				<p>郵便番号</p>
+				<%= text_field :postal_code, autofocus: true, autocomplete: 'postal_code' %>
+			</div>
+			<div class="venue_new_adress">
+				<p>住所</p>
+				<%= text_area :address, autofocus: true, autocomplete: 'address' %>
+			</div>
+			<div class="venue_new_tel">
+				<p>電話番号</p>
+				<%= text_field :tel, autofocus: true, autocomplete: 'tel' %>
+			</div>
+			<div class="venue_new_url">
+				<p>会場サイトURL</p>
+				<%= text_field :venue_url, autofocus: true, autocomplete: 'venue_url' %>
+			</div>
+			<div class="venue_new_map">
+				<p>地図？</p>
+				<%#= text_field :venue_name, autofocus: true, autocomplete: 'venue_name' %>
+			</div>
+			<div class="venue_new_btn">
+				<%#= f.submit '登録', class: "btn btn-info" %>
+			</div>
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+<%= render 'users/side_r' %>

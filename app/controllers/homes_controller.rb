@@ -9,5 +9,6 @@ class HomesController < ApplicationController
   end
 
   def useful
+  	@prints = Print.all
   end
 end

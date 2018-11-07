@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
 
 * {
 	margin: 0;
@@ -28,13 +30,21 @@
 
 header {
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	background-color: gray;
 }
 
 .header_left {
-	width: 60%;
+	width: 30%;
+  height: 40px;
 	float: left;
+}
+
+.header_center {
+  width: 30%;
+  height: 40px;
+  float: left;
+  background-color: lightgray;
 }
 
 .header_right {
@@ -69,7 +79,7 @@ header {
 }
 .dropmenu li a{
   display: block;
-  height: 50px;
+  height: 40px;
   margin: 0;
   padding: 15px 0 11px;
   background: red;

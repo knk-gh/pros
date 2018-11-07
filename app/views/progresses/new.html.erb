@@ -1,2 +1,56 @@
-<h1>Progresses#new</h1>
-<p>Find me in app/views/progresses/new.html.erb</p>
+<div class="progress_new clearfix">
+
+	<div class="progress_new_main">
+		<div class="progress_new_box">
+
+			<div class="progress_new_head">
+				<p><b>進歩新規投稿</b></p>
+			</div>
+			<div class="progress_new_deadline">
+				<p>作業名</p>
+				<%= text_field :work_name, autofocus: true, autocomplete: 'work_name' %>
+			</div>
+			<div class="progress_new_deadline">
+				<p>締切日</p>
+				<%= text_field :dead_line, autofocus: true, autocomplete: 'dead_line' %>
+			</div>
+			<div class="progress_new_deadline">
+				<p>イベント日（ご参加予定のある方のみ）</p>
+				<%= text_field :event, autofocus: true, autocomplete: 'event' %>
+			</div>
+			<div class="progress_new_deadline">
+				<p>メッセージ</p>
+				<%= text_field :message, autofocus: true, autocomplete: 'message' %>
+			</div>
+			<div class="progress_new_deadline">
+				<p>ページ数</p>
+				<%= text_field :page, autofocus: true, autocomplete: 'page' %>
+			</div>
+			<div class="progress_new_deadline">
+				<p>工程</p>
+				<%= text_field :dead_line, autofocus: true, autocomplete: 'dead_line' %>
+			</div>
+			<div class="progress_new_btn">
+				<%#= f.submit '作成する', class: "btn btn-info user_edit_btn" %>
+			</div>
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+<%= render 'users/side_r' %>
