@@ -10,6 +10,85 @@
   </head>
 
   <body>
+
+    <% if user_signed_in? %>
+      <header class="clearfix">
+        <div class="header_left">
+          Pros
+        </div>
+
+        <div class="header_right">
+          <nav>
+            <ul id="dropmenu" class="dropmenu">
+              <li>
+                <a href="#">ユーザー</a>
+                <ul>
+                  <li>
+                    <%= link_to "マイページ", user_path(current_user.id) %>
+                  </li>
+                  <li>
+                    <%= link_to "応援ユーザー一覧", user_path(current_user.id) %>
+                  </li>
+                  <li>
+                    <%= link_to "ユーザー検索", progresses_path %>
+                  </li>
+                  <li>
+                    <%= link_to "会員設定", edit_user_path(current_user.id) %>
+                  </li>
+                  <li>
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">新規投稿</a>
+                <ul>
+                  <li>
+                    <%= link_to "進歩新規登録", new_progress_path %>
+                  </li>
+                  <li>
+                    <%= link_to "いきぬき投稿", new_graffiti_path %>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">サイト関連</a>
+                <ul>
+                  <li>
+                    <%= link_to "ご利用方法", homes_about_path %>
+                  </li>
+                  <li>
+                    <%= link_to "お役立ち", homes_useful_path %>
+                  </li>
+                  <li>
+                    <%= link_to "お問い合わせ", inquiries_path %>
+                  </li>
+                </ul>
+              </li>
+              <% if current_user.try(:admin?) %>
+                <li>
+                  <a href="#">管理人</a>
+                  <ul>
+                    <li>
+                      <%= link_to "ユーザー一覧", users_path %>
+                    </li>
+                    <li>
+                      <%= link_to "会場登録", new_venue_path %>
+                    </li>
+                    <li>
+                      <%= link_to "印刷所登録", new_print_path %>
+                    </li>
+                  </ul>
+                </li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <% end %>
+
     <%= yield %>
+
   </body>
+
 </html>

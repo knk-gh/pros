@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+# validates-----------------------------------------------------------------------
+
+	validates :name, presence: true
+
 # has_many-belongs_to-------------------------------------------------------------
 
 	has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
