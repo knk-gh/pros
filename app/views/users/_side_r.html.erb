@@ -1,14 +1,21 @@
 <!-- scssはuser_showと同一 -->
 	<div class="side_bar" id="layout">
 
-		<div class="side_image">
-			画像ここ
+		<div class="side_image_box">
+			<%= attachment_image_tag @userme, :user_image, :limit, '100%', '100%', fallback: "no_image.jpg", class: "side_image" %>
 		</div>
 		<div class="side_name">
-			name
+			<%= @userme.name %>
+			<% if @userme.status == 1 %>
+				<p>未創作</p>
+			<% elsif @userme.status == 2 %>
+				<p>創作中</p>
+			<% elsif @userme.status == 3 %>
+				<p>ここを使う余裕すら無し</p>
+			<% end %>
 		</div>
 		<div class="side_prof">
-			prof
+			<%= @userme.profile %>
 		</div>
 		<div class="side_fav">
 			fav

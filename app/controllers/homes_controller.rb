@@ -9,6 +9,7 @@ class HomesController < ApplicationController
   end
 
   def useful
+  	@userme = current_user
   	@prints = Print.all
   end
 end

@@ -1,25 +1,27 @@
 <div class="user_index">
 	<p class="user_index_h_p"><b>ユーザー一覧</b></p>
-	<div class="user_index_main clearfix">
 
-		<div class="user_index_id">
-			id
-		</div>
-		<div class="user_index_image">
-			image
-		</div>
-		<div class="user_index_prof">
-			<div class="user_index_prof_name">
-				名前
+	<% @users.each do |user| %>
+		<div class="user_index_main clearfix">
+			<div class="user_index_id">
+				<%= user.id %>
 			</div>
-			<div class="user_index_prof_text">
-				一言
+			<div class="user_index_image">
+				<%= attachment_image_tag user, :user_image, :limit, '100%', '100%', fallback: "no_image.jpg", class: "user_index_image2" %>
+			</div>
+			<div class="user_index_prof">
+				<div class="user_index_prof_name">
+					<%= user.name %>
+				</div>
+				<div class="user_index_prof_text">
+					<%= user.profile %>
+				</div>
+			</div>
+			<div class="user_index_btn">
+				<%= link_to "詳細", user_path(user.id) %>
+				<%= link_to "削除", user_path(user.id), method: :delete, "data-confirm" => "このユーザーを削除しますか？" %>
 			</div>
 		</div>
-		<div class="user_index_btn">
-			詳細/削除
-		</div>
-
-	</div>
+	<% end %>
 
 </div>

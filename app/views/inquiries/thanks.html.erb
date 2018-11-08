@@ -1,2 +1,13 @@
-<h1>Inquiries#thanks</h1>
-<p>Find me in app/views/inquiries/thanks.html.erb</p>
+<div class="page-header">
+  <h1>お問い合わせ</h1>
+</div>
+<p>
+  お問い合わせいただきありがとうございました。<br>
+  5秒後自動的にtopへ戻ります。
+</p>
+
+<script type="text/javascript">
+setTimeout(function(){
+  window.location.href = users_path;
+}, 5*1000);
+</script>
