@@ -7,16 +7,18 @@
 				<p><b>いきぬき投稿</b></p>
 				<p>創作中にしたラクガキや進行状況など、一言添えてどうぞ。</p>
 			</div>
-			<div class="graffiti_new_image">
-				<%#= attachment_field :graffiti_image, placeholder: "画像" %>
-			</div>
-			<div class="graffiti_new_text">
-				<%= text_area :name, autofocus: true, autocomplete: 'name' %>
-			</div>
-			<div class="graffiti_new_btn">
-				<%#= f.submit '変更を保存する', class: "btn btn-info user_edit_btn" %>
-			</div>
-
+			<%= form_for [@user,@graffiti] do |f| %>
+				<div class="graffiti_new_image">
+					<img src="" height="200" alt="ここにプレビューが出ます">
+					<%= f.attachment_field :graffiti_image, placeholder: "画像", onchange: "previewFile()" %>
+				</div>
+				<div class="graffiti_new_text">
+					<%= f.text_area :graffiti_text, autofocus: true, autocomplete: 'graffiti_text' %>
+				</div>
+				<div class="graffiti_new_btn">
+					<%= f.submit '投稿', class: "btn btn-info" %>
+				</div>
+			<% end %>
 
 
 

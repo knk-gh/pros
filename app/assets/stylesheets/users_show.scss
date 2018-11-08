@@ -91,11 +91,16 @@
 	background-color: blue;
 }
 
-.side_image {
+.side_image_box {
 	width: 90%;
 	height: 200px;
 	margin: 15px auto 10px;
 	background-color: green;
+}
+
+.side_image {
+	width: 100%;
+	height: 100%;
 }
 
 .side_name {

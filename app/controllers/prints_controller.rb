@@ -1,5 +1,6 @@
 class PrintsController < ApplicationController
   def new
+    @userme = current_user
     @print = Print.new
   end
 
@@ -13,6 +14,7 @@ class PrintsController < ApplicationController
   end
 
   def edit
+    @userme = current_user
     @print = Print.find(params[:id])
   end
 
