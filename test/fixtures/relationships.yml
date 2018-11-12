@@ -3,9 +3,9 @@
 one:
   following_id: 1
   follower_id: 1
-  deleted_at: 2018-11-06 06:10:14
+  deleted_at: 2018-11-11 03:24:55
 
 two:
   following_id: 1
   follower_id: 1
-  deleted_at: 2018-11-06 06:10:14
+  deleted_at: 2018-11-11 03:24:55
