@@ -18,7 +18,15 @@
 			<%= @userme.profile %>
 		</div>
 		<div class="side_fav">
-			fav
+			<% if @user == current_user %>
+            	<%= link_to '応援ユーザー一覧', following_user_path(@user), class: "btn btn-info" %>
+          	<% else %>
+            	<% if current_user.following?(@user) %>
+              		<%= render 'unfollow' %>
+            	<% else %>
+              		<%= render 'follow' %>
+            	<% end %>
+          <% end %>
 		</div>
 		<div class="side_ikinuki">
 			ikinuki

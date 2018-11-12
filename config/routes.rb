@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root to: 'homes#index'
 
   devise_for :users, controllers: {
@@ -29,6 +31,6 @@ Rails.application.routes.draw do
   resources :venues, only:[:show, :new, :create, :edit, :update, :destroy]
   resources :progresses
   resources :steps, only:[:create, :update, :destroy]
-  # resources :relationships, only:[:create,:destroy]
+  resources :relationships, only:[:create,:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

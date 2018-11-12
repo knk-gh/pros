@@ -1,6 +1,6 @@
-class CreateRelatioships < ActiveRecord::Migration[5.2]
+class CreateRelationships < ActiveRecord::Migration[5.2]
   def change
-    create_table :relatioships do |t|
+    create_table :relationships do |t|
       t.integer :following_id
       t.integer :follower_id
       t.datetime :deleted_at

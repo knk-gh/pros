@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class RelatioshipsControllerTest < ActionDispatch::IntegrationTest
+class RelationshipsControllerTest < ActionDispatch::IntegrationTest
   test "should get create" do
-    get relatioships_create_url
+    get relationships_create_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get relatioships_destroy_url
+    get relationships_destroy_url
     assert_response :success
   end
 

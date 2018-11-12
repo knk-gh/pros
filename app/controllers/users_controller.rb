@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @userme = User.find(params[:id])
+    @user  = User.find(params[:id])
   end
 
   def edit
@@ -29,6 +30,18 @@ class UsersController < ApplicationController
       @users.destroy
       redirect_to users_path, notice:'ユーザー削除をしました'
     end
+  end
+
+  def following
+      @user  = User.find(params[:id])
+      @users = @user.followings
+      render 'show_follow'
+  end
+
+  def followers
+      @user  = User.find(params[:id])
+      @users = @user.followers
+      render 'show_follower'
   end
 
 
