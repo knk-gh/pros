@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'paranoia', '~> 2.3', '>= 2.3.1'
 gem 'cocoon'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem "refile-mini_magick"
 gem "refile", require: "refile/rails", github: 'manfe/refile'

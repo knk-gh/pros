@@ -10,7 +10,7 @@
 }
 
 .graffiti_new_main {
-	width: 80%;
+	width: 100%;
 	float: left;
 	background-color: lightsalmon;
 }
@@ -23,4 +23,29 @@
 
 .graffiti_new_head {
 	padding: 15px;
+}
+
+/*--show------------------------------------------------*/
+
+.graf_box {
+	width: 100%;
+	margin: 20px auto;
+	background-color: lightsalmon;
+}
+
+.graf_main_box {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.graf_main {
+	line-height: 600px;
+	text-align: center;
+}
+
+.graf_text {
+	width: 100%;
+	padding: 5px 15px;
+	text-align: center;
+	background-color: gold;
 }

@@ -1,2 +1,27 @@
-<h1>Graffitis#show</h1>
-<p>Find me in app/views/graffitis/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pros</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+	<div class="graf_box">
+		<div class="graf_main_box">
+			<%= attachment_image_tag @graffiti, :graffiti_image, :limit, '500', '600', format: 'jpeg', class: "graf_main" %>
+			<div class="graf_text">
+				<%= @graffiti.graffiti_text %>
+			</div>
+		</div>
+
+	</div>
+
+  </body>
+
+  </html>
+
+

@@ -1,15 +1,20 @@
 class GraffitisController < ApplicationController
   def show
   	@userme = current_user
+    @user = User.find(params[:user_id])
+    @graffiti = Graffiti.find(params[:id])
+    render layout: false
   end
 
   def new
   	@userme = current_user
     @user = User.find(current_user.id)
     @graffiti = Graffiti.new
+    @graffitis = Graffiti.where(user_id: @user.id)
   end
 
   def create
+    @userme = current_user
     @graffiti = Graffiti.new(graffiti_params)
     @graffiti.user_id = current_user.id
     if @graffiti.save
@@ -29,7 +34,7 @@ class GraffitisController < ApplicationController
 
   private
     def graffiti_params
-      params.require(:graffiti).permit(:user_id, :graffiti_image_id, :graffiti_text)
+      params.require(:graffiti).permit(:user_id, :graffiti_image, :graffiti_text)
     end
 
 
