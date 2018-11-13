@@ -7,7 +7,13 @@
 				<p><b>いきぬき投稿</b></p>
 				<p>創作中にしたラクガキや進行状況など、一言添えてどうぞ。</p>
 			</div>
-			<%= form_for [@user,@graffiti] do |f| %>
+			<%= form_for [@user,@graffiti], url: user_graffitis_path do |f| %>
+				<% if @graffiti.errors.any? %>
+	        		<%= @graffiti.errors.count %>件のエラーが発生しました
+	        		<% @graffiti.errors.full_messages.each do |message| %>
+	           	 		<%= message %>
+	        		<% end %>
+	    		<% end %>
 				<div class="graffiti_new_image">
 					<img src="" height="200" alt="ここにプレビューが出ます">
 					<%= f.attachment_field :graffiti_image, placeholder: "画像", onchange: "previewFile()" %>
@@ -33,4 +39,4 @@
 
 
 	</div>
-<%= render 'users/side_r' %>
+</div>

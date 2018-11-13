@@ -6,11 +6,14 @@ class UsersController < ApplicationController
   def show
     @userme = User.find(params[:id])
     @user  = User.find(params[:id])
+    @graffitis = Graffiti.where(user_id: @user.id).order(id: :desc)
+    @graffiti = Graffiti.find(params[:id])
   end
 
   def edit
     @userme = current_user
     @user = User.find(params[:id])
+    @graffitis = Graffiti.where(user_id: @user.id)
   end
 
   def update
