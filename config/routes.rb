@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'step_colors/update'
+  get 'step_colors/destroy'
   get 'relationships/create'
   get 'relationships/destroy'
   root to: 'homes#index'
@@ -23,14 +25,15 @@ Rails.application.routes.draw do
 
   resources :users, only:[:index, :show, :edit, :update, :destroy] do
     resources :graffitis, only:[:show, :new, :create, :destroy]
+    resources :progresses
     member do
       get :following, :followers
     end
   end
   resources :prints, only:[:new, :create, :edit, :update, :destroy]
   resources :venues, only:[:show, :new, :create, :edit, :update, :destroy]
-  resources :progresses
   resources :steps, only:[:create, :update, :destroy]
   resources :relationships, only:[:create,:destroy]
+  resources :step_colors, only:[:update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

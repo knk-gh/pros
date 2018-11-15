@@ -1,2 +1,48 @@
-<h1>Progresses#show</h1>
-<p>Find me in app/views/progresses/show.html.erb</p>
+
+<%= @progress.dead_line%><br>
+<%= @progress.event%><br>
+<%= @progress.work_name%><br>
+<%= @progress.message%><br>
+
+<br><br>
+
+<div class="table_box clearfix">
+
+
+	<div class="table_box_l">
+		<div class="table_bl_main"></div>
+		<% (1..@progress.page).each do |pp| %>
+			<div class="table_bl_main">
+				<%= pp %>
+			</div>
+		<% end %>
+	</div>
+
+
+	<div class="table_box_r clearfix">
+		<% @progress.steps.each do |ps| %>
+			<div class="table_br_p">
+				<%= ps.step_name %>
+			</div>
+		<% end %>
+		<% @progress.step_colors.each do |psc| %>
+			<div class="table_br_main">
+				<% if psc.color == 1 %>
+					<div class="color1"></div>
+				<% else %>
+					<div class="color0"></div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
+</div>
+<br><br>
+
+<%= link_to "編集", edit_user_progress_path(user_id: current_user, id: @progress.id) %>
+
+<script type="text/javascript">
+	var wid = gon.yoko
+	$('.table_box_r').css('width',wid);
+</script>
+

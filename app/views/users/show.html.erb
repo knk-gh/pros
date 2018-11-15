@@ -7,7 +7,13 @@
 				創作進歩状況一覧
 			</div>
 			<div class="progress_box clearfix">
-				<div class="progress_box_l">ここメイン</div>
+				<div class="progress_box_l">
+					<% @progress.each do |pro|%>
+						<%= link_to user_progress_path(user_id: pro.user.id,id: pro.id) do %>
+						ここじゃー
+						<% end %>
+					<% end %>
+				</div>
 				<div class="progress_box_r">詳細</div>
 			</div>
 		</div>
