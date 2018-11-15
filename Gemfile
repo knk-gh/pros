@@ -11,6 +11,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem 'kaminari'
 gem 'gmaps4rails'
 gem "geocoder"
+gem 'gon'
 
 ruby '2.5.1'
 

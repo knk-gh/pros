@@ -1,50 +1,55 @@
 <div class="progress_new clearfix">
-
 	<div class="progress_new_main">
 		<div class="progress_new_box">
 
 			<div class="progress_new_head">
 				<p><b>進歩新規投稿</b></p>
 			</div>
-			<div class="progress_new_deadline">
-				<p>作業名</p>
-				<%= text_field :work_name, autofocus: true, autocomplete: 'work_name' %>
-			</div>
-			<div class="progress_new_deadline">
-				<p>締切日</p>
-				<%= text_field :dead_line, autofocus: true, autocomplete: 'dead_line' %>
-			</div>
-			<div class="progress_new_deadline">
-				<p>イベント日（ご参加予定のある方のみ）</p>
-				<%= text_field :event, autofocus: true, autocomplete: 'event' %>
-			</div>
-			<div class="progress_new_deadline">
-				<p>メッセージ</p>
-				<%= text_field :message, autofocus: true, autocomplete: 'message' %>
-			</div>
-			<div class="progress_new_deadline">
-				<p>ページ数</p>
-				<%= text_field :page, autofocus: true, autocomplete: 'page' %>
-			</div>
-			<div class="progress_new_deadline">
-				<p>工程</p>
-				<%= text_field :dead_line, autofocus: true, autocomplete: 'dead_line' %>
-			</div>
-			<div class="progress_new_btn">
-				<%#= f.submit '作成する', class: "btn btn-info user_edit_btn" %>
-			</div>
 
-
-
+			<%= form_for [@user,@progress],url:user_progresses_path do |f| %>
+				<% if @progress.errors.any? %>
+	        		<%= @progress.errors.count %>件のエラーが発生しました
+	        		<% @progress.errors.full_messages.each do |message| %>
+	           	 		<%= message %>
+	        		<% end %>
+	    		<% end %>
+				<div class="progress_new_deadline">
+					<p>作業名</p>
+					<%= f.text_field :work_name, autofocus: true, autocomplete: 'work_name' %>
+				</div>
+				<div class="progress_new_deadline">
+					<p>締切日</p>
+					<%= f.date_select :dead_line, autofocus: true, autocomplete: 'dead_line', date_separator: "/", use_month_numbers: true %>
+				</div>
+				<div class="progress_new_deadline">
+					<p>イベント日（ご参加予定のある方のみ）</p>
+					<%= f.date_select :event, autofocus: true, autocomplete: 'event', date_separator: "/", use_month_numbers: true %>
+				</div>
+				<div class="progress_new_deadline">
+					<p>メッセージ</p>
+					<%= f.text_field :message, autofocus: true, autocomplete: 'message' %>
+				</div>
+				<div class="progress_new_deadline">
+					<p>ページ数</p>
+					<%= f.number_field :page, min:1, autofocus: true, autocomplete: 'page' %>
+				</div>
+				<div class="progress_new_deadline">
+					<p>工程</p>
+					<div id="steps">
+						<%= f.fields_for :steps do |step| %>
+							<%= render 'step_fields', f: step %>
+						<% end %>
+						<div id="links">
+							<%= link_to_add_association '工程追加', f, :steps %>
+						</div>
+						<div class="progress_new_btn">
+							<%= f.submit '作成する', class: "btn btn-info user_edit_btn" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
 
 		</div>
-
-
-
-
-
-
-
-
 	</div>
 </div>
+

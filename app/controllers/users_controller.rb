@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @userme = User.find(params[:id])
     @user  = User.find(params[:id])
     @graffitis = Graffiti.where(user_id: @user.id).order(id: :desc)
-    @graffiti = Graffiti.find(params[:id])
+    @progress = Progress.where(user_id: @user.id)
   end
 
   def edit

@@ -52,3 +52,11 @@
 
 
 
+td {
+	width: 50px;
+	border: 1px solid green;
+}
+
+.qqq:nth-child(n+4) {
+	display: none;
+}
