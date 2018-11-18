@@ -25,7 +25,10 @@ Rails.application.routes.draw do
 
   resources :users, only:[:index, :show, :edit, :update, :destroy] do
     resources :graffitis, only:[:show, :new, :create, :destroy]
-    resources :progresses
+    resources :progresses do
+      resource :likes, only: [:create, :destroy]
+      resource :worries, only: [:create, :destroy]
+    end
     member do
       get :following, :followers
     end

@@ -42,6 +42,11 @@
 <%= link_to "編集", edit_user_progress_path(user_id: current_user, id: @progress.id) %>
 <br><br>
 
+<%= render partial: 'likes/like' %>
+<%= render partial: 'worries/worry' %>
+
+
+<br><br>
 <div class="progress" style="width: 500px;">
   <div id ="answer_progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow=@aria_valuenow aria-valuemin="0" aria-valuemax="100">
     <%= @answer_valuenow  %>%
@@ -49,8 +54,38 @@
 </div>
 <span>あなたの進捗は<%= @answer_valuenow  %>パーセントです。</span>
 
+<div class="Timer">
+  <!-- <p>締切まであと</p> -->
+  <div id="TimeLeft"></div>
+</div>
+
 <script type="text/javascript">
 	var wid = gon.yoko
 	$('.table_box_r').css('width',wid);
+	$('#answer_progress').width(gon.answer_valuenow + '%');
+
+	var c_time = gon.time
+	var today = new Date();
+
+	var targetDay = new Date(c_time);
+
+	remainDay = Math.floor((targetDay - today) / (24*60*60*1000));
+
+	remainDay++;
+
+	if (remainDay > 0) {
+		$("#TimeLeft").text("開催まで残り"+remainDay+"日");
+	}
+	else if (remainDay < -1) {
+	  $("#TimeLeft").text("締切は過ぎました");
+	}
+	else if (remainDay < -1) {
+	  $("#TimeLeft").text("締切当日です");
+	}
+
+
+
 </script>
+
+
 
