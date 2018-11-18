@@ -17,4 +17,14 @@ class Progress < ApplicationRecord
 	accepts_nested_attributes_for :step_colors, allow_destroy: true  # fields_forを定義するためのメソッド
 	belongs_to :user
 
+# いいね系-------------------------------------------------------------
+
+	def liked_by?(user)
+      likes.where(user_id: user.id).exists?
+    end
+
+    def worried_by?(user)
+      worries.where(user_id: user.id).exists?
+    end
+
 end
