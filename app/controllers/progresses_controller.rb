@@ -13,6 +13,11 @@ class ProgressesController < ApplicationController
     @step = Step.where(progress_id: @progress.id)
     gon.yoko = @progress.steps.count * 90
     #javaに渡す変数
+
+    all_step_colors_count = @progress.step_colors.count
+    progress_count = StepColor.where(progress_id: @progress.id, color: 1).count
+    @answer_valuenow = progress_count.to_f / all_step_colors_count.to_f * 100
+    gon.answer_valuenow = @answer_valuenow
   end
 
   def new

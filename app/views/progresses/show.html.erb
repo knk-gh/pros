@@ -40,6 +40,14 @@
 <br><br>
 
 <%= link_to "編集", edit_user_progress_path(user_id: current_user, id: @progress.id) %>
+<br><br>
+
+<div class="progress" style="width: 500px;">
+  <div id ="answer_progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow=@aria_valuenow aria-valuemin="0" aria-valuemax="100">
+    <%= @answer_valuenow  %>%
+  </div>
+</div>
+<span>あなたの進捗は<%= @answer_valuenow  %>パーセントです。</span>
 
 <script type="text/javascript">
 	var wid = gon.yoko
