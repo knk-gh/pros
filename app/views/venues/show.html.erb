@@ -1,2 +1,23 @@
 <h1>Venues#show</h1>
 <p>Find me in app/views/venues/show.html.erb</p>
+
+
+
+<div id="map" style='width: 50%; height: 400px;'></div>
+
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: { scrollwheel: true }, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+        {
+          "lat": <%= @venue.latitude %>,
+          "lng": <%= @venue.longitude %>,
+		  "infowindow": '<p><%= @venue.venue_name %></p><p><%= @venue.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@venue.latitude},#{@venue.longitude}&iwloc=J",target: "_blank" %></p>'
+        }
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(17);
+    });
+  </script>
+  <!-- scrollwheel: false  false に設定するとスクロールイベント（ページのスクロール中にMapが拡大・縮小する）を無効にできる -->

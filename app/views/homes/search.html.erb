@@ -1,0 +1,73 @@
+<%= stylesheet_link_tag 'progresses_index' %>
+<div class="progress_index clearfix">
+
+	<div class="progress_index_main">
+		<div class="progress_index_box">
+			<div class="progress_index_search">
+				<%= form_tag(homes_useful_path,:method => 'get') do %>
+					<%= text_field_tag :search %>
+					<%= submit_tag 'Search', :name => nil %>
+				<% end %>
+
+			</div>
+
+			
+
+			<div class="progress_index_latest">
+				開始したばかりのスケジュール(最新５件)
+				<% @progresses.first(5).each do |progress| %>
+				<div class="progress_index_latest_box clearfix">
+					<div class="progress_index_latest_l">
+						<p><b>締切日</b></p>
+					</div>
+					<div class="progress_index_latest_r">
+						<p><b>メッセージ</b></p>
+					</div>
+				</div>
+				<div class="progress_index_latest_box clearfix">
+					<div class="progress_index_latest_l">
+						<p><%= progress.dead_line %></p>
+					</div>
+					<div class="progress_index_latest_r">
+						<p><%= progress.message %></p>
+					</div>
+				</div>
+				<% end %>
+				
+				＞＞もっと見る
+
+			</div>
+
+			<div class="progress_index_latest">
+				創作中のユーザー（最大５件）
+				<% @users.first(5).each do |user| %>
+				<div class="progress_index_latest_box clearfix">
+					<div class="progress_index_latest_l">
+						<p><b>締切日</b></p>
+					</div>
+					<div class="progress_index_latest_r">
+						<p><b>メッセージ</b></p>
+					</div>
+				</div>
+				<div class="progress_index_latest_box clearfix">
+					<div class="progress_index_latest_l">
+						<p><%= user.name %></p>
+					</div>
+					<div class="progress_index_latest_r">
+						<p><%= user.profile %></p>
+					</div>
+				</div>
+				<% end %>
+
+				＞＞もっと見る
+
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+</div>

@@ -9,6 +9,11 @@
     <%= include_gon %>
     <%= Gon::Base.render_data %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY'] %>"></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+
+
   </head>
 
   <body>
@@ -34,7 +39,7 @@
                     <%= link_to "応援ユーザー一覧", user_path(current_user.id) %>
                   </li>
                   <li>
-                    <%#= link_to "ユーザー検索", user_progresses_path %>
+                    <%= link_to "ユーザー検索", homes_search_path %>
                   </li>
                   <li>
                     <%= link_to "会員設定", edit_user_path(current_user.id) %>

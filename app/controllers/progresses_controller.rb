@@ -64,7 +64,7 @@ class ProgressesController < ApplicationController
 
   private
     def progress_params
-      params.require(:progress).permit(:user_id, :work_name, :dead_line, :event, :message, :page,
+      params.require(:progress).permit(:user_id, :work_name, :dead_line, :event, :message, :page, :private,
         steps_attributes: [:id, :step_name, :_destroy],
         step_colors_attributes: [:id, :color, :_destroy]
         )

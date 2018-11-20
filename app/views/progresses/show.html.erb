@@ -55,7 +55,7 @@
 <span>あなたの進捗は<%= @answer_valuenow  %>パーセントです。</span>
 
 <div class="Timer">
-  <!-- <p>締切まであと</p> -->
+  <p>締切まであと</p>
   <div id="TimeLeft"></div>
 </div>
 
@@ -79,7 +79,7 @@
 	else if (remainDay < -1) {
 	  $("#TimeLeft").text("締切は過ぎました");
 	}
-	else if (remainDay < -1) {
+	else {
 	  $("#TimeLeft").text("締切当日です");
 	}
 

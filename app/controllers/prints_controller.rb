@@ -6,6 +6,7 @@ class PrintsController < ApplicationController
 
   def create
     @print = Print.new(print_params)
+    @print.user_id = current_user.id
     if @print.save
       redirect_to homes_useful_path, notice:'登録しました'
     else
@@ -37,7 +38,7 @@ class PrintsController < ApplicationController
 
   private
     def print_params
-      params.require(:print).permit(:company, :company_url)
+      params.require(:print).permit(:company, :company_url, :user_id)
     end
 
 

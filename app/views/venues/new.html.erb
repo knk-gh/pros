@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag 'users_edit' %>
+
 <div class="venue_new clearfix">
 
 	<div class="venue_new_main">
@@ -7,51 +7,49 @@
 			<div class="venue_new_head">
 				<p><b>会場登録</b></p>
 			</div>
-			<div class="venue_new_name">
-				<p>会場名</p>
-				<%= text_field :venue_name, autofocus: true, autocomplete: 'venue_name' %>
-			</div>
-			<div class="venue_new_postal">
-				<p>郵便番号</p>
-				<%= text_field :postal_code, autofocus: true, autocomplete: 'postal_code' %>
-			</div>
-			<div class="venue_new_adress">
-				<p>住所</p>
-				<%= text_area :address, autofocus: true, autocomplete: 'address' %>
-			</div>
-			<div class="venue_new_tel">
-				<p>電話番号</p>
-				<%= text_field :tel, autofocus: true, autocomplete: 'tel' %>
-			</div>
-			<div class="venue_new_url">
-				<p>会場サイトURL</p>
-				<%= text_field :venue_url, autofocus: true, autocomplete: 'venue_url' %>
-			</div>
-			<div class="venue_new_map">
-				<p>地図？</p>
-				<%#= text_field :venue_name, autofocus: true, autocomplete: 'venue_name' %>
-			</div>
-			<div class="venue_new_btn">
-				<%#= f.submit '登録', class: "btn btn-info" %>
-			</div>
 
-
+			<%= form_for(@venue) do |f| %>
+			<% if @venue.errors.any? %>
+        		<%= @venue.errors.count %>件のエラーが発生しました
+        		<% @venue.errors.full_messages.each do |message| %>
+           	 		<%= message %>
+        		<% end %>
+    		<% end %>
+				<div class="venue_new_name">
+					<p>会場名</p>
+					<%= f.text_field :venue_name, autofocus: true, autocomplete: 'venue_name' %>
+				</div>
+				<div class="venue_new_postal">
+					<p>郵便番号</p>
+					<%= f.text_field :postal_code, autofocus: true, autocomplete: 'postal_code' %>
+				</div>
+				<div class="venue_new_adress">
+					<p>住所</p>
+					<%= f.text_area :address, autofocus: true, autocomplete: 'address' %>
+				</div>
+				<div class="venue_new_tel">
+					<p>電話番号</p>
+					<%= f.text_field :tel, autofocus: true, autocomplete: 'tel' %>
+				</div>
+				<div class="venue_new_url">
+					<p>会場サイトURL</p>
+					<%= f.text_field :venue_url, autofocus: true, autocomplete: 'venue_url' %>
+				</div>
+				<div class="venue_new_map">
+					<p>緯度</p>
+					<%= f.text_field :latitude, autofocus: true, autocomplete: 'latitude' %>
+				</div>
+				<div class="venue_new_map">
+					<p>経度</p>
+					<%= f.text_field :longitude, autofocus: true, autocomplete: 'longitude' %>
+				</div>
+				<div class="venue_new_btn">
+					<%= f.submit '登録', class: "btn btn-info" %>
+				</div>
+			<% end %>
 
 
 		</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</div>
-<%= render 'users/side_r' %>
+</div>
