@@ -7,13 +7,23 @@
 				創作進歩状況一覧
 			</div>
 			<div class="progress_box clearfix">
+
 				<div class="progress_box_l">
 					<% @progress.each do |pro|%>
-						<%= link_to user_progress_path(user_id: pro.user.id,id: pro.id) do %>
-						ここじゃー
+						<% if pro.private == 1 && current_user %>
+							<%= link_to user_progress_path(user_id: pro.user.id,id: pro.id) do %>
+							ここじゃー(非公開中)
+							<% end %><br>
+						<% elsif pro.private == 1 %>
+							<%= nil %>
+						<% else %>
+							<%= link_to user_progress_path(user_id: pro.user.id,id: pro.id) do %>
+							ここじゃー
+							<% end %><br>
 						<% end %>
 					<% end %>
 				</div>
+
 				<div class="progress_box_r">詳細</div>
 			</div>
 		</div>
@@ -23,24 +33,18 @@
 				お気に入り印刷所
 			</div>
 			<div class="fav_print">
+				<% @favorite_prints.each do |favp| %>
+					<div class="fav_print_box">
+						<%= link_to favp.print.company, favp.print.company_url %>
+					</div>
+
+				<% end %>
+
+
 				<div class="fav_print_box">
 					○○印刷所
 				</div>
-				<div class="fav_print_box">
-					○○印刷所
-				</div>
-				<div class="fav_print_box">
-					○○印刷所
-				</div>
-				<div class="fav_print_box">
-					○○印刷所
-				</div>
-				<div class="fav_print_box">
-					○○印刷所
-				</div>
-				<div class="fav_print_box">
-					○○印刷所
-				</div>
+
 			</div>
 		</div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_111822) do
+ActiveRecord::Schema.define(version: 2018_11_19_192515) do
 
   create_table "favorite_prints", force: :cascade do |t|
     t.integer "user_id"
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 2018_11_15_111822) do
     t.string "graffiti_image_id"
     t.text "graffiti_text"
     t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_111822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.integer "user_id"
   end
 
   create_table "progresses", force: :cascade do |t|
@@ -72,6 +78,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_111822) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "private", default: 0
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -134,6 +141,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_111822) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "worries", force: :cascade do |t|

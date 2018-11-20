@@ -3,6 +3,26 @@
 
 	<div class="useful_main">
 		<div class="useful_box">
+			<ul><% @users.each do |user| %>
+
+			  <li>
+			  <%= link_to user.name %>
+			  <%= user.created_at %>
+			  <%= user.profile %>
+			  </li>
+
+			  <% end %>
+			</ul>
+			<ul><% @progresses.each do |pro| %>
+
+			  <li>
+			  <%= pro.user.name %>
+			  <%= pro.dead_line %>
+			  <%= pro.message %>
+			  </li>
+
+			  <% end %>
+			</ul>
 
 			<p><b>お役立ち</b></p>
 			<p>よく使う印刷所や気になる印刷所、よく行く会場などお気に入りしますと<br>
@@ -18,12 +38,15 @@
 							<div class="useful_print_l">
 								<%= link_to print.company, print.company_url %>
 							</div>
+							<div>
+							  <%= render partial: 'favorite_prints/favorite_print' ,:locals => {print: print} %>
+							</div>
 							<div class="useful_print_r">
 								<% if current_user.try(:admin?) %>
 									<%= link_to "編集", edit_print_path(print.id) %>
 									<%= link_to "削除", print_path(print.id), method: :delete, "data-confirm" => "この印刷所を削除します" %>
 								<% else %>
-									お気に入り
+									お気に入り設置場所
 								<% end %>
 							</div>
 						</div>
@@ -35,14 +58,24 @@
 				<div class="useful_venue_title">
 					<b>会場</b>
 				</div>
+				<% @venues.each do |venue| %>
 				<div class="useful_venue_names clearfix">
 					<div class="useful_venue_l">
-						東京ビッグサイト
+						<%= venue.venue_name %>
 					</div>
 					<div class="useful_venue_r">
-						お気に入り
+						<% if venue.favorite_venued_by?(current_user) %>
+						    <%= link_to venue_favorite_venues_path(venue_id: venue), method: :delete do %>
+						    	お気に入り解除
+						    <% end %>
+						<% else %>
+						    <%= link_to venue_favorite_venues_path(venue_id: venue), method: :poste do %>
+						    	お気に入り
+						    <% end %>
+						<% end %>
 					</div>
 				</div>
+				<% end %>
 				<div class="useful_venue_names clearfix">
 					<div class="useful_venue_l">
 						東京ビッグサイト
@@ -55,7 +88,44 @@
 
 		</div>
 
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 	</div>
 </div>

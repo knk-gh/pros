@@ -1,0 +1,11 @@
+
+  <% if print.favorite_printed_by?(current_user) %>
+      <%= link_to print_favorite_prints_path(print_id: print), method: :delete do %>
+        お気に入り解除
+      <% end %>
+  <% else %>
+      <%= link_to print_favorite_prints_path(print_id: print), method: :poste do %>
+        お気に入り
+      <% end %>
+  <% end %>
+

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about', as:'homes_about'
   get '/goodbye' => 'homes#goodbye', as:'homes_goodbye'
   get '/useful' => 'homes#useful', as:'homes_useful'
+  get '/search' => 'homes#search', as:'homes_search'
 
   # get 'inquiries/index'
   # get 'inquiries/confirm'
@@ -33,8 +34,12 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :prints, only:[:new, :create, :edit, :update, :destroy]
-  resources :venues, only:[:show, :new, :create, :edit, :update, :destroy]
+  resources :prints, only:[:new, :create, :edit, :update, :destroy] do
+    resource :favorite_prints, only: [:create, :destroy]
+  end
+  resources :venues, only:[:show, :new, :create, :edit, :update, :destroy] do
+    resource :favorite_venues, only: [:create, :destroy]
+  end
   resources :steps, only:[:create, :update, :destroy]
   resources :relationships, only:[:create,:destroy]
   resources :step_colors, only:[:update, :destroy]

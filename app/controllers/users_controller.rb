@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @graffitis = Graffiti.where(user_id: @user.id).order(id: :desc)
     @progress = Progress.where(user_id: @user.id)
+    @print = Print.all
+    @favorite_prints = FavoritePrint.where(user_id: @user.id)
   end
 
   def edit
@@ -33,6 +35,12 @@ class UsersController < ApplicationController
       @users.destroy
       redirect_to users_path, notice:'ユーザー削除をしました'
     end
+  end
+
+  def favp
+      @user  = User.find(params[:id])
+      @print = @user.followings
+      render 'show'
   end
 
   def following
