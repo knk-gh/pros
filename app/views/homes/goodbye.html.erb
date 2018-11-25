@@ -1,8 +1,21 @@
 <div class="last_page">
-	<p><b>退会の前に</b></p>
-	<p>云々カンヌン云々カンヌン<br>本日はお日柄もよく<br>あー云々カンヌン云々カンヌン</p>
+	<div class="last_page_head">
+		<p><b>退会の前に</b></p>
+	</div>
+	<div class="last_page_text">
+		<p>
+			「Pros」を退会しますと全てのサービスがご利用できなくなります。<br>
+			また、退会しますと同じメールアドレスでの新規登録はできなくなります。<br>
+			再度同じメールアドレスで新規登録をされたい方は、<br>
+			お手数ですが<span>別のメールアドレスに変更した後</span>,<br>
+			退会することをお勧めいたします。
+		</p>
+	</div>
 	<div class="gb_btn">
-		<%= link_to "退会する", user_registration_path, method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+		<%= link_to "退会する", user_registration_path, method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %><br>
+	</div>
+	<div class="gb_back">
+		<%= link_to "戻る", edit_user_path(current_user.id), class: "pros_link" %>
 	</div>
 </div>
 

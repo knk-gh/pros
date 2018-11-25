@@ -10,18 +10,19 @@
   </head>
 
   <body>
-	<div class="graf_box">
-		<div class="graf_main_box">
-			<%= attachment_image_tag @graffiti, :graffiti_image, :limit, '500', '600', format: 'jpeg', class: "graf_main" %>
-			<div class="graf_text">
-				<%= @graffiti.graffiti_text %>
-			</div>
-		</div>
 
-	</div>
+  	<div class="graf_box">
+  		<div class="graf_main_box">
+  			<%= attachment_image_tag @graffiti, :graffiti_image, :limit, '500', '600', class: "graf_main" %>
+  			<div class="graf_text">
+          <%= @graffiti.created_at.strftime('%Y/%m/%d') %>
+          <%= simple_format(@graffiti.graffiti_text) %>
+  			</div>
+  		</div>
+  	</div>
 
   </body>
 
-  </html>
+</html>
 
 

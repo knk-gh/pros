@@ -1,6 +1,7 @@
 class Graffiti < ApplicationRecord
 
 	attachment :graffiti_image
+	paginates_per 15
 
 
 # validates-----------------------------------------------------------------------

@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag 'homes_search' %>
+<div class="progress_index clearfix">
+
+		<div class="progress_index_box">
+			<div class="progress_index_head">
+				<p><b>ユーザー検索結果</b></p>
+			</div>
+
+			<div class="progress_index_latest">
+				<% @users.each do |user| %>
+					<%= link_to user_path(id: user.id) do %>
+							<div class="search_after_box clearfix">
+								<div class="search_after_l">
+									<p><%= user.name %></p>
+								</div>
+								<div class="search_after_r">
+									<p><%= truncate(user.profile, length: 40, omission: " ....") %></p>
+								</div>
+							</div>
+					<% end %>
+				<% end %>
+
+			</div>
+			<div class="progress_index_latest">
+				<% @progresses.each do |prog| %>
+					<%= link_to user_path(id: prog.user.id) do %>
+							<div class="search_after_box clearfix">
+								<div class="progress_index_latest_l">
+									<p>締切日：<%= prog.dead_line %></p>
+								</div>
+								<div class="progress_index_latest_c">
+									<p><%= truncate(prog.user.profile, length: 40, omission: " ....") %></p>
+								</div>
+								<div class="progress_index_latest_r">
+									<p>by&nbsp;<%= prog.user.name %></p>
+								</div>
+							</div>
+					<% end %>
+				<% end %>
+
+			</div>
+
+		</div>
+
+</div>

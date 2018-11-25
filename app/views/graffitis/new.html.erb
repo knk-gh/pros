@@ -1,35 +1,37 @@
-<div class="graffiti_new clearfix">
+<div class="graffiti_new"><br>
 
 	<div class="graffiti_new_main">
 		<div class="graffiti_new_box">
 
 			<div class="graffiti_new_head">
-				<p><b>いきぬき投稿</b></p>
-				<p>創作中にしたラクガキや進行状況など、一言添えてどうぞ。</p>
+				<p><b>いきぬき投稿</b><br></p>
 			</div>
-			<%= form_for [@user,@graffiti], url: user_graffitis_path do |f| %>
-				<% if @graffiti.errors.any? %>
-	        		<%= @graffiti.errors.count %>件のエラーが発生しました
-	        		<% @graffiti.errors.full_messages.each do |message| %>
-	           	 		<%= message %>
-	        		<% end %>
-	    		<% end %>
-				<div class="graffiti_new_image">
-					<img src="" height="200" alt="ここにプレビューが出ます">
-					<%= f.attachment_field :graffiti_image, placeholder: "画像", onchange: "previewFile()" %>
-				</div>
-				<div class="graffiti_new_text">
-					<%= f.text_area :graffiti_text, autofocus: true, autocomplete: 'graffiti_text' %>
-				</div>
-				<div class="graffiti_new_btn">
-					<%= f.submit '投稿', class: "btn btn-info" %>
-				</div>
-			<% end %>
+			<div>
+				<p>創作中にしたラクガキや進行状況など、一言添えてどうぞ。</p>
+				<%= form_for [@user,@graffiti], url: user_graffitis_path do |f| %>
+					<% if @graffiti.errors.any? %>
+		        		<%= @graffiti.errors.count %>件のエラーが発生しました
+		        		<% @graffiti.errors.full_messages.each do |message| %>
+		           	 		<%= message %>
+		        		<% end %>
+		    		<% end %>
+					<div class="graffiti_new_image">
+						<img class="image_pre">
+						<%= f.attachment_field :graffiti_image, placeholder: "画像", onchange: "previewFile()" %>
+					</div>
+					<div class="graffiti_new_text">
+						<p><b>一言</b></p>
+						<%= f.text_area :graffiti_text, autofocus: true, autocomplete: 'graffiti_text', class: "form-control", rows: "3" %>
+					</div><br>
+					<div class="graffiti_new_btn">
+						<%= f.submit '投稿', class: "btn btn-success form-control" %>
+					</div>
+				<% end %>
+			</div>
 
 
 
 		</div>
-
 
 
 

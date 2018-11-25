@@ -1,3 +1,45 @@
 // Place all the styles related to the inquiries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mail_page {
+	width: 100%;
+	height: 100vh;
+}
+
+.mail_box {
+	width: 500px;
+	margin: 20px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
+}
+
+.mail-head {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.mail-head b {
+	color: #028760;
+}
+
+.mail_text_p {
+	margin-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e8d3c7;
+}
+
+.mail_text span {
+	color: #ec6d71;
+}

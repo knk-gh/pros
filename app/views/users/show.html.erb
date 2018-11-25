@@ -1,58 +1,144 @@
 <%= stylesheet_link_tag 'users_show' %>
-<div class="user_show clearfix">
-	<div class="user_show_main">
-
-		<div class="user_show_box1">
-			<div class="user_show_box1_title">
-				創作進歩状況一覧
+<div class="user_show">
+	<br>
+	<div class="my_page clearfix">
+		<div class="my_page_l">
+			<div class="my_image_box">
+				<%= attachment_image_tag @user, :user_image, :limit, '100%', '100%', format: 'jpeg', fallback: "no_image.jpg", class: "my_image" %>
 			</div>
-			<div class="progress_box clearfix">
-
-				<div class="progress_box_l">
-					<% @progress.each do |pro|%>
-						<% if pro.private == 1 && current_user %>
-							<%= link_to user_progress_path(user_id: pro.user.id,id: pro.id) do %>
-							ここじゃー(非公開中)
-							<% end %><br>
-						<% elsif pro.private == 1 %>
+			<div class="my_page_status">
+				<% if @user.status == 1 %>
+					<p>未創作</p>
+				<% elsif @user.status == 2 %>
+					<p>創作中</p>
+				<% elsif @user.status == 3 %>
+					<p>ここを使う余裕すら無し</p>
+				<% end %>
+			</div>
+		</div>
+		<div class="my_page_r">
+			<div class="my_info">
+				<div class="my_info_name clearfix">
+					<div class="my_info_name_l">
+						<b><%= @user.name %></b>
+						<% if @user.twitter_url.nil? %>
 							<%= nil %>
 						<% else %>
-							<%= link_to user_progress_path(user_id: pro.user.id,id: pro.id) do %>
-							ここじゃー
-							<% end %><br>
+							<%= link_to @user.twitter_url do %>
+								<img src="/assets/twitter_icon.png" class="sns_icon" >
+							<% end %>
+						<% end %>
+						<% if @user.pixiv_url.nil? %>
+							<%= nil %>
+						<% else %>
+							<%= link_to @user.pixiv_url do %>
+								<img src="/assets/logo_icon_r.png" class="sns_icon" >
+							<% end %>
+						<% end %>
+					</div>
+					<div class="my_info_name_r">
+						<% if @user == current_user %>
+			            	<%= link_to '応援リスト', following_user_path(@user), class: "btn btn-info fol_in_btn" %>
+			          	<% else %>
+			            	<% if current_user.following?(@user) %>
+			              		<%= render 'unfollow' %>
+			            	<% else %>
+			              		<%= render 'follow' %>
+			            	<% end %>
+			        	<% end %>
+					</div>
+				</div>
+				<div class="my_info_prof">
+					<%= simple_format(@user.profile) %>
+				</div>
+			</div>
+
+			<div class="my_graf">
+				<div class="my_graf_head">
+					<p><b>いきぬき画像（最新１３件）</b>
+					<% if @graffitis.empty? %>
+						<% nil %>
+					<% else %>
+						<%= link_to "＞＞もっと見る", user_graffitis_path(user_id: @user.id), class: "pros_link" %></p>
+					<% end %>
+				</div>
+				<div class="my_graf_main">
+					<% if @graffitis.empty? %>
+						<p>まだ投稿していません</p>
+					<% else %>
+						<% @graffitis.first(13).each do |graf| %>
+							<%= link_to user_graffiti_path(user_id: graf.user.id, id: graf.id), class: " modalBtn" do %>
+								<%= attachment_image_tag graf, :graffiti_image, format: 'jpeg', class: "ikinuki_image" %>
+							<% end %>
 						<% end %>
 					<% end %>
 				</div>
-
-				<div class="progress_box_r">詳細</div>
 			</div>
 		</div>
-
-		<div class="user_show_box2">
-			<div class="user_show_box2_title">
-				お気に入り印刷所
-			</div>
-			<div class="fav_print">
-				<% @favorite_prints.each do |favp| %>
-					<div class="fav_print_box">
-						<%= link_to favp.print.company, favp.print.company_url %>
-					</div>
-
-				<% end %>
-
-
-				<div class="fav_print_box">
-					○○印刷所
-				</div>
-
-			</div>
-		</div>
-
-		<div class="user_show_box3">
-			<div class="user_show_box3_title">
-				お気に入り会場
-			</div>
-		</div>
-
 	</div>
-<%= render 'users/side_r' %>
+	<div class="my_page_pro">
+		<div class="report_title clearfix">
+			<div class="report_title_l">
+				<p><b>近況：</b>
+					<% if @user.report.nil? %>
+						特になし</p>
+					<% else %>
+						<%= @user.report %></p>
+					<% end %>
+			</div>
+			<div class="report_title_r">
+				<% if @user == current_user %>
+					<p id="openModal" class="btn-sm btn-success">投稿</p>
+				<% end %>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="my_page_pro">
+		<div class="content_title">
+			<b>創作進歩状況一覧</b>
+		</div>
+		<% if @progress.empty? %>
+			<p>まだ投稿していません。投稿は<%= link_to "こちら", new_user_progress_path(user_id: current_user), class: "pros_link" %>から。</p>
+		<% else %>
+			<%= render 'users/my_page_pro' %>
+		<% end %>
+	</div>
+
+	<% if @user == current_user %>
+		<%= render 'users/my_page_fav' %>
+	<% end %>
+
+</div>
+
+<!-- モーダルエリアここから -->
+<!-- ログイン -->
+<section id="modalArea" class="modalArea">
+  <div id="modalBg" class="modalBg"></div>
+  <div class="modalWrapper">
+    <div class="modalContents">
+    	<%= form_for(@user) do |f| %>
+	    	<% if @user.errors.any? %>
+	    		<%= @user.errors.count %>件のエラーが発生しました
+	    		<% @user.errors.full_messages.each do |message| %>
+	       	 		<%= message %>
+	    		<% end %>
+			<% end %>
+    		<div class="user_edit_label">
+				<p><b>近況</b></p>
+				<%= f.text_area :report, autofocus: true, autocomplete: 'report', class: "form-control", rows: 2 %>
+			</div><br>
+			<div class="user_edit_btn">
+				<%= f.submit '更新', class: "btn btn-success form-control" %>
+			</div>
+		<% end %><br>
+    </div>
+    <div id="closeModal" class="closeModal">
+      ×
+    </div>
+  </div>
+</section>
+
+
+

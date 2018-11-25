@@ -1,26 +1,50 @@
-<h2>Log in</h2>
+<%= stylesheet_link_tag 'users_login' %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="loginpage clearfix">
+  <div class="loginpage_l">
+    <div class="loginpage_top">
+      その”がんばり”を気軽に応援してほしい<br>
+      誰かのがんばりを見て、自分にもやる気を<span>――――――</span><br>
+      そんな皆の創作進歩共有サイト
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+      <img src="/assets/pros_logo.png" class="top_logo">
+      <div class="loginpage_about">
+        <%= link_to "＞＞詳しく見る", homes_about_path, class: "pros_link" %>
+      </div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="loginpage_r">
+    <div class="login">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <p class="login_title"><b>ログイン</b></p>
+
+        <div class="field">
+
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+        </div><br>
+
+        <div class="field">
+
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",class: "form-control" %>
+        </div>
+        <br>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <b>情報を記憶する</b>
+          </div>
+        <% end -%>
+        <br>
+
+        <div class="actions">
+          <%= f.submit "ログイン",class: "form-control btn btn-success" %>
+        </div>
+      <% end %>
+      <div class="loginpage_new">
+        <%= link_to "新規登録", new_user_registration_path, class: "pros_link" %>
+      </div>
+    </div>
+  </div>
+</div>
+

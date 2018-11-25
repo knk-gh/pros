@@ -1,23 +1,36 @@
-<h1>Venues#show</h1>
-<p>Find me in app/views/venues/show.html.erb</p>
+<div class="ven_show_page">
+  <div class="ven_show_main">
+    <div class="ven_show_venuename">
+      <p><b><%= @venue.venue_name %></b></p>
+    </div>
+    <div class="ven_show_adress">
+      <p><%= @venue.postal_code %></p>
+      <p><%= simple_format(@venue.address) %></p>
+      <p>TEL：<%= @venue.tel %></p>
+      <p>URL：<%= link_to @venue.venue_url, @venue.venue_url, target: "_blank" %></p>
+    </div>
+    <div id="map" style='width: 100%; height: 400px;'></div>
+    <div class="ven_show_back">
+      <%= link_to "戻る", :back, class: "pros_link" %>
+    </div>
+  </div>
+</div>
 
 
 
-<div id="map" style='width: 50%; height: 400px;'></div>
-
-  <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: { scrollwheel: true }, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers([
-        {
-          "lat": <%= @venue.latitude %>,
-          "lng": <%= @venue.longitude %>,
-		  "infowindow": '<p><%= @venue.venue_name %></p><p><%= @venue.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@venue.latitude},#{@venue.longitude}&iwloc=J",target: "_blank" %></p>'
-        }
-      ]);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(17);
-    });
-  </script>
-  <!-- scrollwheel: false  false に設定するとスクロールイベント（ページのスクロール中にMapが拡大・縮小する）を無効にできる -->
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: { scrollwheel: true }, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @venue.latitude %>,
+        "lng": <%= @venue.longitude %>,
+	  "infowindow": '<p><%= @venue.venue_name %></p><p><%= @venue.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@venue.latitude},#{@venue.longitude}&iwloc=J",target: "_blank" %></p>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(17);
+  });
+</script>
+<!-- scrollwheel: false  false に設定するとスクロールイベント（ページのスクロール中にMapが拡大・縮小する）を無効にできる -->

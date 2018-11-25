@@ -1,51 +1,32 @@
-<%= stylesheet_link_tag 'users_edit' %>
-<div class="print_new clearfix">
+<div class="print_new"><br>
 
-	<div class="print_new_main">
-		<div class="print_new_box">
+	<div class="print_new_box">
 
-			<div class="print_new_head">
-				<p><b>印刷所登録</b></p>
-			</div>
-
-			<%= form_for(@print) do |f| %>
-				<% if @print.errors.any? %>
-	        		<%= @print.errors.count %>件のエラーが発生しました
-	        		<% @print.errors.full_messages.each do |message| %>
-	           	 		<%= message %>
-	        		<% end %>
-	    		<% end %>
-				<div class="print_new_name">
-					<p>印刷所名</p>
-					<%= f.text_field :company, autofocus: true, autocomplete: 'company' %>
-				</div>
-				<div class="print_new_url">
-					<p>印刷所サイトURL</p>
-					<%= f.text_field :company_url, autofocus: true, autocomplete: 'company_url' %>
-				</div>
-				<div class="print_new_btn">
-					<%= f.submit '変更', class: "btn btn-info" %>
-				</div>
-
-			<% end %>
-
-
-
-
+		<div class="print_new_head">
+			<p><b>印刷所編集</b></p>
 		</div>
 
+		<%= form_for(@print) do |f| %>
+			<% if @print.errors.any? %>
+        		<%= @print.errors.count %>件のエラーが発生しました
+        		<% @print.errors.full_messages.each do |message| %>
+           	 		<%= message %>
+        		<% end %>
+    		<% end %>
+			<div class="print_new_text">
+				<p><b>印刷所名</b></p>
+				<%= f.text_field :company, autofocus: true, autocomplete: 'company', class: "form-control" %>
+			</div>
+			<div class="print_new_text">
+				<p><b>印刷所サイトURL</b></p>
+				<%= f.text_field :company_url, autofocus: true, autocomplete: 'company_url', class: "form-control", placeholder: "http://..." %>
+			</div><br>
+			<div class="print_new_btn">
+				<%= f.submit '変更', class: "btn btn-success form-control" %>
+			</div>
 
-
-
-
-
-
-
-
-
-
-
-
+		<% end %>
 
 	</div>
-<%= render 'users/side_r' %>
+
+</div>

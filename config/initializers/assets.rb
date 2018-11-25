@@ -18,5 +18,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( users_show.css )
 Rails.application.config.assets.precompile += %w( users_edit.css )
+Rails.application.config.assets.precompile += %w( users_login.css )
 Rails.application.config.assets.precompile += %w( homes_useful.css )
 Rails.application.config.assets.precompile += %w( progresses_index.css )
+Rails.application.config.assets.precompile += %w( progresses_show.css )
+Rails.application.config.assets.precompile += %w( homes_search.css )

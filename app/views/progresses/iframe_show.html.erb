@@ -1,0 +1,51 @@
+<%= stylesheet_link_tag 'progresses_show' %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pros</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="pro_iframe">
+      <div class="pro_main clearfix" style="width:<%= "#{@prowid}px" %>;">
+        <div class="pro_main_l">
+          <div class="pro_bl_main0"></div>
+          <% (1..@progress.page).each do |pp| %>
+            <div class="pro_bl_main">
+              <%= pp %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="pro_main_r clearfix" style="width:<%= "#{@yoko}px" %>;">
+          <% @progress.steps.each do |ps| %>
+            <div class="pro_br_p">
+              <%= ps.step_name %>
+            </div>
+          <% end %>
+          <% @progress.step_colors.each do |psc| %>
+            <div class="pro_br_main">
+              <% if psc.color == 1 %>
+                <div class="color1" style="background-color: <%= "#{@progress.btn_color}" %>;"></div>
+              <% else %>
+                <div class="color0"></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+
+
+

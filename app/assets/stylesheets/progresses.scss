@@ -6,28 +6,40 @@
 
 .progress_new {
 	width: 100%;
-	background-color: gold;
-}
-
-.progress_new_main {
-	width: 80%;
-	float: left;
-	background-color: lightsalmon;
+	height: 100vh;
 }
 
 .progress_new_box {
-	width: 50%;
-	margin: 15px auto;
-	background-color: ivory;
-}
-
-.progress_new_box p {
-	padding-left: 15px;
+	width: 500px;
+	margin: 0px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
 }
 
 .progress_new_head {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.progress_new_head b {
+	color: #028760;
+}
+
+.progress_new_label p {
+	margin-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e8d3c7;
 }
 
 .td_box {
@@ -36,44 +48,6 @@
 }
 
 
-
-.table_box {
-	background-color: lightgray;
-
-}
-
-.table_box_l {
-	width: 50px;
-	float: left;
-	background-color: red;
-}
-
-.table_bl_main {
-	width: 50px;
-	height: 25px;
-	border: 1px solid #000;
-	background-color: gold;
-}
-
-.table_box_r {
-	float: left;
-	flex-wrap: wrap;
-}
-
-.table_br_p {
-	width: 90px;
-	height: 25px;
-	float: left;
-	border: 1px solid #000;
-	background-color: olive;
-}
-
-.table_br_main {
-	width: 90px;
-	height: 25px;
-	float: left;
-	border: 1px solid pink;
-}
 
 .table_br_main_edit {
 	width: 90px;

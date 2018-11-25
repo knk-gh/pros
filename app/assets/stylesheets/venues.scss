@@ -6,26 +6,79 @@
 
 .venue_new {
 	width: 100%;
-	background-color: gold;
-}
-
-.venue_new_main {
-	width: 80%;
-	float: left;
-	background-color: lightsalmon;
+	height: 100vh;
 }
 
 .venue_new_box {
-	width: 50%;
-	margin: 15px auto;
-	background-color: ivory;
+	width: 500px;
+	margin: 0px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
 }
 
-.venue_new_box p {
-	padding-left: 15px;
+.venue_new_text p {
+	margin-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e8d3c7;
 }
 
 .venue_new_head {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.venue_new_head b {
+	color: #028760;
+}
+
+/*--show-----------------------------------------------*/
+
+.ven_show_page {
+	width: 100%;
+	height: 100vh;
+}
+
+.ven_show_main {
+	width: 800px;
+	margin: 20px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
+}
+
+.ven_show_venuename {
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.ven_show_venuename b {
+	color: #028760;
+}
+
+.ven_show_venuename p {
+	font-size: 20px;
+}
+
+.ven_show_back {
+	text-align: right;
+	padding-top: 5px;
 }

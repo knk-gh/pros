@@ -1,67 +1,40 @@
+<%= stylesheet_link_tag 'progresses_show' %>
 
-<%= @progress.dead_line%><br>
-<%= @progress.event%><br>
-<%= @progress.work_name%><br>
-<%= @progress.message%><br>
+<div class="pro_show"><br>
 
-<br><br>
-
-<div class="table_box clearfix">
-
-
-	<div class="table_box_l">
-		<div class="table_bl_main"></div>
-		<% (1..@progress.page).each do |pp| %>
-			<div class="table_bl_main">
-				<%= pp %>
+	<div class="pro_show_main">
+		<div class="pro_show_title">
+			<p><b><%= @progress.work_name%></b>&nbsp;&nbsp;|&nbsp;&nbsp;by&nbsp;
+				<%= link_to @user.name ,user_path(@user.id), class: "pros_link" %></p>
+		</div>
+		<div class="pro_show_message">
+			<p>・<%= @progress.message%></p>
+		</div>
+		<div class="pro_show_dead clearfix">
+			<div class="pro_show_dead_l">
+				<p><span id="TimeLeft"></span>&nbsp;&nbsp;&nbsp;&nbsp;締切日：<%= @progress.dead_line%></p>
 			</div>
-		<% end %>
-	</div>
-
-
-	<div class="table_box_r clearfix">
-		<% @progress.steps.each do |ps| %>
-			<div class="table_br_p">
-				<%= ps.step_name %>
-			</div>
-		<% end %>
-		<% @progress.step_colors.each do |psc| %>
-			<div class="table_br_main">
-				<% if psc.color == 1 %>
-					<div class="color1"></div>
-				<% else %>
-					<div class="color0"></div>
+			<div class="pro_show_dead_r">
+				<% if @user == current_user %>
+					<%= link_to "編集する", edit_user_progress_path(user_id: current_user, id: @progress.id), class: "btn-success btn-sm" %>
 				<% end %>
+				<%= render partial: 'likes/like' %>
+				<%= render partial: 'worries/worry' %>
 			</div>
-		<% end %>
+		</div>
+		<iframe src="<%= url_for(i_show_path(user_id: @user, id:@progress)) %>" style="width:<%= "#{@yoko + 50}px" %>; height: <%= "#{@progress.page * 25 + 25}px" %>;" name="sample" class="pro_show_iframe">この部分はインラインフレームを使用しています。</iframe>
+		<p><b>進行度</b></p>
+		<div class="progress" style="width: 100%;">
+			<div id ="answer_progress" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=@aria_valuenow aria-valuemin="0" aria-valuemax="100">
+		    	<%= @answer_valuenow.round  %>%
+			</div>
+		</div>
+		<p>作成日：<%= @progress.created_at.strftime('%Y/%m/%d') %>&nbsp;&nbsp;|&nbsp;&nbsp;最終更新日：<%= @progress.updated_at.strftime('%Y/%m/%d') %></p>
 	</div>
 
-</div>
-<br><br>
-
-<%= link_to "編集", edit_user_progress_path(user_id: current_user, id: @progress.id) %>
-<br><br>
-
-<%= render partial: 'likes/like' %>
-<%= render partial: 'worries/worry' %>
-
-
-<br><br>
-<div class="progress" style="width: 500px;">
-  <div id ="answer_progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow=@aria_valuenow aria-valuemin="0" aria-valuemax="100">
-    <%= @answer_valuenow  %>%
-  </div>
-</div>
-<span>あなたの進捗は<%= @answer_valuenow  %>パーセントです。</span>
-
-<div class="Timer">
-  <p>締切まであと</p>
-  <div id="TimeLeft"></div>
 </div>
 
 <script type="text/javascript">
-	var wid = gon.yoko
-	$('.table_box_r').css('width',wid);
 	$('#answer_progress').width(gon.answer_valuenow + '%');
 
 	var c_time = gon.time
@@ -74,7 +47,7 @@
 	remainDay++;
 
 	if (remainDay > 0) {
-		$("#TimeLeft").text("開催まで残り"+remainDay+"日");
+		$("#TimeLeft").text("締切まで残り"+remainDay+"日");
 	}
 	else if (remainDay < -1) {
 	  $("#TimeLeft").text("締切は過ぎました");
@@ -86,6 +59,7 @@
 
 
 </script>
+
 
 
 

@@ -24,7 +24,7 @@ class VenuesController < ApplicationController
 
   def update
     @venue = Venue.find(params[:id])
-    if @venue.update(print_params)
+    if @venue.update(venue_params)
       redirect_to venue_path(@venue.id), notice:'変更しました'
     else
     render :edit
