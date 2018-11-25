@@ -1,59 +1,118 @@
+<%= stylesheet_link_tag 'progresses_show' %>
+<div class="pro_show"><br>
 
-<%= form_for [@user,@progress],url:user_progress_path do |f| %>
-	<%= f.text_field :work_name, autofocus: true, autocomplete: 'work_name' %>
-	<%= f.text_field :message, autofocus: true, autocomplete: 'message' %>
-	<%= @progress.dead_line%><br>
-	<%= @progress.event%><br>
+	<div class="pro_show_main">
+		<div class="pro_show_title">
+			<p><b><%= @progress.work_name%></b>&nbsp;&nbsp;の編集&nbsp;&nbsp;
+				<span class="glyphicon glyphicon-repeat" aria-hidden="true" onclick="reload()"></span>
+		</div>
 
-	<div class="table_box clearfix">
+		<div class="pro_iframe_edit">
+		  	<%= form_for [@user,@progress],url:user_progress_path do |f| %>
+		    	<div class="pro_main clearfix" style="width:<%= "#{@prowid}px" %>;">
+		        	<div class="pro_main_l">
+		         	<div class="pro_bl_main0"></div>
+			          	<% (1..@progress.page).each do |pp| %>
+			            	<div class="pro_bl_main">
+			            		<%= pp %>
+			            	</div>
+			          	<% end %>
+		        	</div>
+
+		        	<div class="pro_main_r clearfix" style="width:<%= "#{@yoko}px" %>;">
+
+						<% @progress.steps.each do |ps| %>
+							<div class="pro_br_p">
+						  		<%= ps.step_name %>
+							</div>
+						<% end %>
+
+		        		<%= f.fields_for :step_colors do |sc| %>
+							<div class="pro_br_main btn-group" data-toggle="buttons">
+								<label class="color_edit">
+									<%= sc.radio_button :color, 1, autofocus: false, autocomplete: "off", class: "table_br_main_edit" %>
+								</label>
+							</div>
+						<% end %>
+
+	        		</div>
+	     		</div>
+	     		<div class="pro_edit_text">
+		     		<div class="pro_edit_reload">
+		     			<p>一度押すと取り消しできません。<br>もしも間違えてしまったら
+		     				<span class="glyphicon glyphicon-repeat" aria-hidden="true" onclick="reload()"></span>を押して再度入力し直してください
+		     			</p>
+					</div>
+					<div class="progress_new_label">
+					<p><b>作業名</b></p>
+					<%= f.text_field :work_name, autofocus: true, autocomplete: 'work_name', placeholder: "例：○○のイベント用、等", class: "form-control" %>
+				</div>
+				<div class="progress_new_label">
+					<p><b>締切日</b></p>
+					<%= f.date_select :dead_line, autofocus: true, autocomplete: 'dead_line', date_separator: "/", use_month_numbers: true %>
+				</div>
+				<div class="progress_new_label">
+					<p><b>メッセージ</b></p>
+					<%= f.text_area :message, autofocus: true, autocomplete: 'message', placeholder: "見てくれる方へご自由に", class: "form-control" %>
+				</div>
+				<div class="progress_new_label">
+					<p><b>ボタンカラー（表を埋める時の色）</b></p>
+					<%= f.color_field :btn_color, autofocus: true, autocomplete: 'event', :size => '100' %>
+				</div>
+					<div><br>
+						<p>他のユーザーに
+						<%= f.select :private, [["公開", 0], ["非公開", 1]], autofocus: true, autocomplete: 'private',:prompt => "選択してください" %></p>
+					</div>
+		    		<div class="pro_edit_pri">
+						<%= f.submit '更新', class: "btn btn-success btn-sm form-control" %>
+					</div>
+				</div>
+			<% end %>
+	    </div>
+
+
+	</div>
+
+</div>
+
+
+<script>
+function reload(){
+  location.reload();
+}
+</script>
+
+
+<!-- 	<div class="table_box clearfix">
 
 		<div class="table_box_l">
 			<div class="table_bl_main"></div>
-			<% (1..@progress.page).each do |pp| %>
+			<%# (1..@progress.page).each do |pp| %>
 				<div class="table_bl_main">
 					<%= pp %>
 				</div>
-			<% end %>
+			<%# end %>
 		</div>
 
 
-		<div class="table_box_r clearfix">
+		<div class="table_box_r clearfix" style="width:<%#= "#{@yoko}px" %>;">
 
-			<% @progress.steps.each do |ps| %>
+			<%# @progress.steps.each do |ps| %>
 				<div class="table_br_p">
-					<%= ps.step_name %>
+					<%#= ps.step_name %>
 				</div>
-			<% end %>
+			<%# end %>
 
-				<%= f.fields_for :step_colors do |sc| %>
+				<%#= f.fields_for :step_colors do |sc| %>
 					<div class="table_br_main btn-group" data-toggle="buttons">
 						<label class="table_br_main_label">
-							<%= sc.radio_button :color, 1, autofocus: false, autocomplete: "off", class: "table_br_main_edit" %>
+							<%#= sc.radio_button :color, 1, autofocus: false, autocomplete: "off", class: "table_br_main_edit" %>
 						</label>
 					</div>
-				<% end %>
+				<%# end %>
 
 		</div>
 
 	</div>
-	<%= f.select :private, [["公開", 0], ["非公開", 1]], autofocus: true, autocomplete: 'private',:prompt => "選択してください" %>
+ -->
 
-	<%= f.submit '更新', class: "btn btn-info" %>
-<% end %>
-
-
-
-<script type="text/javascript">
-	var wid = gon.yoko
-	$('.table_box_r').css('width',wid);
-
-	var nowchecked = $('.table_br_main_edit').val();
-	$('.table_br_main_edit').click(function(){
-		if($(this).val() == nowchecked) {
-			$(this).prop('checked', false);
-			nowchecked = false;
-		} else {
-			nowchecked = $(this).val();
-		}
-});
-</script>

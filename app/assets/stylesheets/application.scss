@@ -20,6 +20,15 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+  color: #666;
+}
+
+.pros_link {
+  color: #669900;
+}
+
+body {
+  background-color: ivory;
 }
 
 .clearfix::after {
@@ -28,23 +37,36 @@
 	clear: both;
 }
 
+.pros_logo {
+  height: 40px;
+  padding-left: 10px;
+}
+
 header {
 	width: 100%;
 	height: 40px;
-	background-color: gray;
+	background-color: #b8d200;
 }
 
 .header_left {
-	width: 30%;
+	width: 13%;
   height: 40px;
 	float: left;
 }
 
 .header_center {
-  width: 30%;
+  width: 47%;
   height: 40px;
   float: left;
-  background-color: lightgray;
+  background-color: #b8d200;
+}
+
+.header_c_text {
+  line-height: 40px;
+}
+
+.header_leaf {
+  width: 30px;
 }
 
 .header_right {
@@ -82,7 +104,7 @@ header {
   height: 40px;
   margin: 0;
   padding: 15px 0 11px;
-  background: red;
+  background: #b8d200;
   color: #fff;
   font-size: 14px;
   line-height: 1;
@@ -102,15 +124,15 @@ header {
 }
 .dropmenu li ul li a{
   padding: 13px 15px;
-  border-top: 1px solid #7c8c0e;
-  background: #6e7c0c;
+  border-top: 1px solid #9d896c;
+  background: #b8d200;
   text-align: left;
 }
 .dropmenu li:hover > a{
-  background: pink;
+  background: #99cc33;
 }
 .dropmenu li a:hover{
-  background: blue;
+  background: #669900;
 }
 
 #dropmenu li ul li{

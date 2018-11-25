@@ -1,8 +1,15 @@
 class GraffitisController < ApplicationController
+
+  def index
+    @user  = User.find(params[:user_id])
+    @graffitis = Graffiti.where(user_id: @user.id).page.per(10).order(id: :desc)
+  end
+
   def show
   	@userme = current_user
     @user = User.find(params[:user_id])
     @graffiti = Graffiti.find(params[:id])
+    # .order(id: :desc)
     render layout: false
   end
 

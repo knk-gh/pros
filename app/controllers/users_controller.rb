@@ -1,19 +1,19 @@
 class UsersController < ApplicationController
+  require 'progress'
   def index
     @users = User.all
   end
 
   def show
-    @userme = User.find(params[:id])
     @user  = User.find(params[:id])
     @graffitis = Graffiti.where(user_id: @user.id).order(id: :desc)
     @progress = Progress.where(user_id: @user.id)
     @print = Print.all
     @favorite_prints = FavoritePrint.where(user_id: @user.id)
+    @favorite_venues = FavoriteVenue.where(user_id: @user.id)
   end
 
   def edit
-    @userme = current_user
     @user = User.find(params[:id])
     @graffitis = Graffiti.where(user_id: @user.id)
   end
@@ -45,7 +45,8 @@ class UsersController < ApplicationController
 
   def following
       @user  = User.find(params[:id])
-      @users = @user.followings
+      # @users = @user.followings
+      @users = User.page(params[:page]).per(10)
       render 'show_follow'
   end
 
@@ -63,7 +64,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :user_image, :profile, :twitter_url, :pixiv_url, :status)
+      params.require(:user).permit(:name, :user_image, :profile, :twitter_url, :pixiv_url, :status, :report)
     end
 
 

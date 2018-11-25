@@ -1,8 +1,10 @@
 <%= stylesheet_link_tag 'users_edit' %>
-<div class="user_edit clearfix">
+<div class="user_edit clearfix"><br>
 	<div class="user_edit_main clearfix">
 		<div class="user_edit_l">
-			会員情報の変更
+			<div class="user_edit_head">
+				<p><b>会員情報の変更</b><br></p>
+			</div>
 			<%= form_for(@user) do |f| %>
 				<% if @user.errors.any? %>
 	        		<%= @user.errors.count %>件のエラーが発生しました
@@ -10,33 +12,44 @@
 	           	 		<%= message %>
 	        		<% end %>
 	    		<% end %>
-				<div class="user_edit_box">
-					<p>プロフィール画像</p>
-					<img src="" height="200" alt="ここにプレビューが出ます"> <!-- プレビューの表示枠を用意 -->
+				<div class="user_edit_label">
+					<p><b>プロフィール画像</b></p>
+					<img class="image_pre">
 					<%= f.attachment_field :user_image, placeholder: "プロフィール画像", onchange: "previewFile()" %>
-					<p>名前</p>
-					<%= f.text_field :name, autofocus: true, autocomplete: 'name' %>
-					<p>メールアドレス</p>
-					<%= f.text_field :email, autofocus: true, autocomplete: 'email' %>
-					<p>Twitter URL</p>
-					<%= f.text_field :twitter_url, autofocus: true, autocomplete: 'twitter_url' %>
-					<p>Pixiv URL</p>
-					<%= f.text_field :pixiv_url, autofocus: true, autocomplete: 'pixiv_url' %>
-					<p>一言</p>
-					<%= f.text_area :profile, autofocus: true, autocomplete: 'profile' %>
-					<p>現在の状況</p>
+				</div>
+				<div class="user_edit_label">
+					<p><b>名前</b></p>
+					<%= f.text_field :name, autofocus: true, autocomplete: 'name', class: "form-control" %>
+				</div>
+				<div class="user_edit_label">
+					<p><b>メールアドレス</b></p>
+					<%= f.text_field :email, autofocus: true, autocomplete: 'email', class: "form-control" %>
+				</div>
+				<div class="user_edit_label">
+					<p><b>一言</b></p>
+					<%= f.text_area :profile, autofocus: true, autocomplete: 'profile', class: "form-control", rows: 3 %>
+				</div>
+				<div class="user_edit_label">
+					<p><b>Twitter URL</b></p>
+					<%= f.text_field :twitter_url, autofocus: true, autocomplete: 'twitter_url', class: "form-control" %>
+				</div>
+				<div class="user_edit_label">
+					<p><b>Pixiv URL</b></p>
+					<%= f.text_field :pixiv_url, autofocus: true, autocomplete: 'pixiv_url', class: "form-control" %>
+				</div>
+				<div class="user_edit_label">
+					<p><b>現在の状況</b></p>
 					<%= f.select :status, [["未創作", 1], ["創作中", 2],  ["ここを使う余裕すら無し", 3]], autofocus: true, autocomplete: 'status',:prompt => "選択してください" %>
-					<%= f.submit '更新' %>
+				</div><br>
+				<div class="user_edit_btn">
+					<%= f.submit '更新', class: "btn btn-success form-control" %>
 				</div>
 			<% end %>
 		</div>
 		<div class="user_edit_r">
-			<%= link_to "パスワード変更", edit_user_registration_path %><br><br>
-			<%= link_to "退会する", homes_goodbye_path %>
+			<%= link_to "パスワード変更", edit_user_registration_path, class: "pros_link" %><br><br>
+			<%= link_to "退会する", homes_goodbye_path, class: "pros_link" %>
 		</div>
 	</div>
 
-
-
-
-<%= render 'users/side_r' %>
+</div>

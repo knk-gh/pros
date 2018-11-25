@@ -1,34 +1,82 @@
-<h2>Sign up</h2>
+<%= stylesheet_link_tag 'users_login' %>
+<div class="signpage clearfix">
+  <div class="signpage_l">
+    <div class="signpage_top">
+        <div class="theTarget">
+            <div class="signpage_item">
+              <p class="signpage_item_head">進歩状況を目に見える形で</p>
+              <div class="guide_image_box"><img src="/assets/guide05.jpg" class="guide_image"></div>
+              <p>その人ごとに必要な工程を入力、<br>表と％ゲージにて進歩がわかりやすい。</p>
+            </div>
+            <div class="signpage_item">
+              <p class="signpage_item_head">何かと計画通りにいかないあなたに</p>
+              <p>まだ大丈夫、と余裕を持ってしまうことはよくあります。<br>
+              ここなら同じ創作好きの仲間が見てくれています。<br>
+              もしも締切日と比較して進行具合が悪いようなら<br>
+              発破をかけてくれるかも？</p>
+            </div>
+            <div class="signpage_item">
+              <p class="signpage_item_head">ちょっとした画像の投稿もできちゃう！</p>
+              <p>表だけでなく、画像の投稿もできるので<br>
+              作成中の作品の様子を画像でお知らせすることもできます。<br>
+              創作中に別の創作をしたくなることはよくあることなので<br>
+              そのいきぬきの作品を投稿するのもまた一興です。</p>
+            </div>
+            <div class="signpage_item">
+              <p>他にも、よく使う印刷所やイベント会場などを<br>
+              お気に入りしてマイページに追加することができるので<br>
+              いつでもすぐ気になる印刷所や会場の<br>
+              ホームページへ飛ぶことができます。<br>
+              また、会場については地図がありますので<br>
+              すぐに最寄り駅を確認することも！</p><br>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="signpage_r">
+    <div class="sign">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <p class="inhead_name"><b>新規登録</b></p>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="field">
+          <p><b>名前</b></p>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "サイト内で使う名前です",class: "form-control" %>
+        </div>
+        <br>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="field">
+          <p><b>メール</b></p>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス",class: "form-control" %>
+        </div>
+        <br>
 
-<%= render "devise/shared/links" %>
+        <div class="field">
+          <p><b>パスワード</b></p>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上",class: "form-control" %>
+        </div>
+        <br>
+
+        <div class="field">
+          <p><b>パスワード（確認）</b></p>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
+        </div>
+        <br>
+
+        <div class="actions">
+          <%= f.submit "登録",class: "form-control btn btn-success" %>
+        </div>
+      <% end %>
+
+      <div class="signpage_new">
+        <%= link_to "ログイン", new_user_session_path, class: "pros_link" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

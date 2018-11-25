@@ -1,13 +1,12 @@
-<div>
+
   <% if @progress.liked_by?(current_user) %>
-      <%= link_to user_progress_likes_path(user_id: @user.id, progress_id: @progress.id), method: :delete, remote: true do %>
+      <%= link_to user_progress_likes_path(user_id: @user.id, progress_id: @progress.id), class: "btn-info btn-sm", method: :delete, remote: true do %>
         <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
         <%= @progress.likes.count %> 応援してます！
       <% end %>
   <% else %>
-      <%= link_to user_progress_likes_path(user_id: @user.id, progress_id: @progress.id), method: :post, remote: true do %>
+      <%= link_to user_progress_likes_path(user_id: @user.id, progress_id: @progress.id), class: "btn-info btn-sm", method: :post, remote: true do %>
         <i class="fa fa-heart-o" aria-hidden="true"></i>
         <%= @progress.likes.count %> 応援する
       <% end %>
   <% end %>
-</div>

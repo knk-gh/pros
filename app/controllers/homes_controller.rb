@@ -12,17 +12,21 @@ class HomesController < ApplicationController
   	@prints = Print.all
     @venues = Venue.all
     @user = current_user
-    @users = User.search(params[:search])
-    @progresses = Progress.search(params[:search])
   end
 
   def search
     @progresses = Progress.all
-    @users = User.where(status: 2)
+    @users = User.where(status: 2).order('random()').limit(7).includes(:progresses)
+    # @users = Post.all.includes(:places)
+  end
 
+  def search_after
+    @users = User.search(params[:search])
+    @progresses = Progress.search(params[:search])
+  end
 
-
-
+  def pro_all
+    @progresses = Progress.page(params[:page]).page.per(15).order(id: :desc)
   end
 
 

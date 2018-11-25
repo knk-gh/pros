@@ -1,0 +1,32 @@
+<div class="graf_in">
+	<div class="graf_in_box">
+		<div class="graf_in_head">
+			<p><b>いきぬき画像一覧</b></p>
+		</div>
+		<% @graffitis.each do |graf| %>
+			<div class="graf_in_main clearfix">
+				<div class="graf_in_box_l">
+					<%= link_to user_graffiti_path(user_id: graf.user.id, id: graf.id), class: " modalBtn" do %>
+						<%= attachment_image_tag graf, :graffiti_image, class: "ikinuki_image" %>
+					<% end %>
+				</div>
+				<div class="graf_in_box_c">
+					<%= truncate(graf.graffiti_text, length: 40, omission: " ....") %>
+				</div>
+				<div class="graf_in_box_r">
+					<% if @user == current_user %>
+						<%= link_to "削除", user_graffiti_path(user_id:  graf.user.id, id: graf.id), method: :delete, "data-confirm" => "削除しますか？", class: "btn-danger btn-sm" %>
+					<% else %>
+						<%= graf.created_at.strftime('%Y/%m/%d') %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+    	<%= paginate @graffitis, class: "pagenate" %>
+		<div class="graf_in_back">
+      		<%= link_to "戻る", user_path(@user.id), class: "pros_link" %>
+    	</div>
+	</div>
+</div>
+
+

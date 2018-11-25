@@ -3,19 +3,28 @@ Rails.application.routes.draw do
   get 'step_colors/destroy'
   get 'relationships/create'
   get 'relationships/destroy'
-  root to: 'homes#index'
+  # root to: 'users/registrations#new'
 
-  devise_for :users, controllers: {
-  confirmations: 'users/confirmations',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations',
-  sessions:      'users/sessions',
-}
+
+  devise_for :users
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'homes#search', as: :authenticated_root
+    end
+    unauthenticated :user do
+      root :to => 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
 
   get '/about' => 'homes#about', as:'homes_about'
   get '/goodbye' => 'homes#goodbye', as:'homes_goodbye'
   get '/useful' => 'homes#useful', as:'homes_useful'
   get '/search' => 'homes#search', as:'homes_search'
+  get '/s_after' => 'homes#search_after', as:'homes_search_after'
+  get '/proall' => 'homes#pro_all', as:'homes_pro_all'
+  get '/i_show' => 'progresses#iframe_show', as:'i_show'
+  get '/i_edit' => 'progresses#iframe_edit', as:'i_edit'
+
 
   # get 'inquiries/index'
   # get 'inquiries/confirm'
@@ -25,7 +34,7 @@ Rails.application.routes.draw do
   post 'inquiries/thanks' => 'inquiries#thanks'
 
   resources :users, only:[:index, :show, :edit, :update, :destroy] do
-    resources :graffitis, only:[:show, :new, :create, :destroy]
+    resources :graffitis, only:[:index, :show, :new, :create, :destroy]
     resources :progresses do
       resource :likes, only: [:create, :destroy]
       resource :worries, only: [:create, :destroy]

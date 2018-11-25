@@ -1,5 +1,10 @@
-<div class="user_pass_edit clearfix">
+<div class="user_pass_edit"><br>
   <div class="user_pass_edit_main">
+
+    <div class="user_pass_head">
+      <p><b>パスワード編集</b></p>
+    </div>
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
@@ -7,31 +12,29 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
+      <div class="user_pass_text">
+        <p><b>新しいパスワード</b></p>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="user_pass_text">
+        <p><b>新しいパスワード（確認）</b></p>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
 
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
-      </div>
+      <div class="user_pass_text">
+        <p><b>現在のパスワード</b></p>
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+      </div><br>
 
       <div class="actions">
-        <%= f.submit "Update" %>
+        <%= f.submit "変更", class: "btn btn-success form-control" %>
       </div>
     <% end %>
+    <div class="user_pass_back">
+      <%= link_to "戻る", edit_user_path(current_user.id), class: "pros_link" %>
+    </div>
 
-    <%= link_to "戻る", :back %>
   </div>
 
-<%= render 'users/side_r' %>
+</div>

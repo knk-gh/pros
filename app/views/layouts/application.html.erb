@@ -5,13 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY'] %>"></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= include_gon %>
     <%= Gon::Base.render_data %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY'] %>"></script>
-    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 
 
   </head>
@@ -20,10 +20,18 @@
     <% if user_signed_in? %>
       <header class="clearfix">
         <div class="header_left">
-          Pros
+          <img src="/assets/pros_logo.png" class="pros_logo">
         </div>
         <div class="header_center">
-          <%= notice %>
+          <% if notice %>
+            <div class="header_c_text">
+              <img src="/assets/mini_leaf.png" class="header_leaf"><%= notice %>
+            </div>
+          <% else %>
+            <div class="header_c_text">
+              <p>今日は<%= Date.today %>です</p>
+            </div>
+          <% end %>
         </div>
 
         <div class="header_right">
@@ -36,7 +44,7 @@
                     <%= link_to "マイページ", user_path(current_user.id) %>
                   </li>
                   <li>
-                    <%= link_to "応援ユーザー一覧", user_path(current_user.id) %>
+                    <%= link_to "応援リスト", following_user_path(current_user.id) %>
                   </li>
                   <li>
                     <%= link_to "ユーザー検索", homes_search_path %>

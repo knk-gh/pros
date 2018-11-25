@@ -1,0 +1,185 @@
+.pro_show {
+	width: 100%;
+	height: 100vh;
+}
+
+.pro_show_main {
+	width: 800px;
+	margin: 0px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
+}
+
+.pro_show_title {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.pro_show_title b {
+	color: #028760;
+}
+
+.pro_show_title span {
+	color: #669900;
+	cursor: pointer;
+}
+
+.pro_show_message {
+	height: 30px;
+	line-height: 30px;
+
+	border-bottom: 1px dashed #9d896c;
+}
+
+.pro_show_dead {
+	padding-top: 10px;
+}
+
+.pro_show_dead_l {
+	width: 50%;
+	float: left;
+}
+
+#TimeLeft {
+	font-size: 20px;
+	color: #ec6d71;
+}
+
+.pro_show_dead_r {
+	width: 50%;
+	float: left;
+	text-align: right;
+}
+
+.pro_show_iframe {
+	width: 100%;
+	max-height: 500px;
+	margin: 10px 0;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+}
+
+.progress {
+	margin-top: 10px;
+}
+
+/*-iframe--------------------------------------------*/
+
+.pro_iframe {
+	width: 100%;
+}
+
+.pro_main {
+
+	background-color: lightgray;
+
+}
+
+.pro_main_l {
+	width: 50px;
+	float: left;
+	background-color: red;
+}
+
+.pro_bl_main0 {
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	background-color: #b8d200;
+}
+
+.pro_bl_main {
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	background-color: #b8d200;
+}
+
+.pro_bl_main:nth-child(even) {
+	background-color: #e0ebaf;
+}
+
+.pro_main_r {
+	float: left;
+	flex-wrap: wrap;
+}
+
+.pro_br_p {
+	width: 104px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	text-align: center;
+	background-color: #b8d200;
+}
+
+.pro_br_p:nth-child(odd) {
+	background-color: #e0ebaf;
+}
+
+.pro_br_main {
+	width: 104px;
+	height: 25px;
+	float: left;
+}
+
+.color1 {
+	width: 104px;
+	height: 25px;
+	border-bottom: 1px dashed #f0f0f0;
+	border-right: 1px dashed #f0f0f0;
+}
+
+.color0 {
+	width: 104px;
+	height: 25px;
+	background-color: #fff;
+	border-bottom: 1px dashed #f0f0f0;
+	border-right: 1px dashed #f0f0f0;
+}
+
+/*-edit--------------------------------------------*/
+
+.pro_iframe_edit {
+	width: 100%;
+	margin: 10px 0;
+}
+
+.pro_edit_reload {
+	font-size: 12px;
+	margin: 10px 0;
+}
+
+.pro_edit_reload span {
+	color: #669900;
+	cursor: pointer;
+}
+
+.pro_edit_pri {
+	margin: 10px 0;
+}
+
+.color_edit {
+	width: 104px;
+	height: 25px;
+	text-align: center;
+	background-color: #fff;
+	border-bottom: 1px dashed #f0f0f0;
+	border-right: 1px dashed #f0f0f0;
+}
+
+
+

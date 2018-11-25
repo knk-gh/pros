@@ -1,0 +1,79 @@
+<div class="my_page_fav">
+	<div class="content_title">
+		<b>お気に入り</b>
+	</div>
+
+	<% if @favorite_prints.empty? && @favorite_venues.empty? %>
+		<p>何もお気に入りしてません。お気に入りは<%= link_to "こちら", homes_useful_path(user_id: current_user), class: "pros_link" %>から。</p>
+
+	<% elsif @favorite_prints.empty? %>
+		<div class="fav_print">
+			<div class="fav_print_t">
+				<p><b>印刷所</b></p>
+			</div>
+			<div class="fav_print_b">
+				<p>印刷所はお気に入りしてません。お気に入りは<%= link_to "こちら", homes_useful_path(user_id: current_user), class: "pros_link" %>から。</p>
+			</div>
+		</div>
+		<div class="fav_venue">
+			<div class="fav_venue_t">
+				<p><b>会場</b></p>
+			</div>
+			<div class="fav_venue_b">
+				<% @favorite_venues.each do |favv| %>
+					<div class="fav_venue_main">
+							<%= link_to favv.venue.venue_name, venue_path(favv.venue.id), class: "pros_link" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+	<% elsif @favorite_venues.empty? %>
+		<div class="fav_print">
+			<div class="fav_print_t">
+				<p><b>印刷所</b></p>
+			</div>
+			<div class="fav_print_b">
+				<% @favorite_prints.each do |favp| %>
+					<div class="fav_print_main">
+							<%= link_to favp.print.company, favp.print.company_url, target: "_blank", class: "pros_link" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="fav_venue">
+			<div class="fav_venue_t">
+				<p><b>会場</b></p>
+			</div>
+			<div class="fav_venue_b">
+				<p>会場はお気に入りしてません。お気に入りは<%= link_to "こちら", homes_useful_path(user_id: current_user), class: "pros_link" %>から。</p>
+			</div>
+		</div>
+	<% else %>
+		<div class="fav_print">
+			<div class="fav_print_t">
+				<p><b>印刷所</b></p>
+			</div>
+			<div class="fav_print_b">
+				<% @favorite_prints.each do |favp| %>
+					<div class="fav_print_main">
+							<%= link_to favp.print.company, favp.print.company_url, target: "_blank", class: "pros_link" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="fav_venue">
+			<div class="fav_venue_t">
+				<p><b>会場</b></p>
+			</div>
+			<div class="fav_venue_b">
+				<% @favorite_venues.each do |favv| %>
+					<div class="fav_venue_main">
+							<%= link_to favv.venue.venue_name, venue_path(favv.venue.id), class: "pros_link" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+
+</div>

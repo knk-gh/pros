@@ -2,35 +2,140 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*--index-----------------------------------------------*/
+
+.graf_in {
+	width: 100%;
+	height: 100vh;
+}
+
+.graf_in_box {
+	width: 800px;
+	margin: 20px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
+}
+
+.graf_in_head {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.graf_in_head b {
+	color: #028760;
+}
+
+.graf_in_main {
+	width: 778px;
+	height: 46px;
+	margin-top: 3px;
+}
+
+.graf_in_main:hover {
+	background-color: #e0ebaf;
+}
+
+.graf_in_box_l {
+	width: 46px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	float: left;
+}
+
+.ikinuki_image {
+	width: 40px;
+	height: 40px;
+	border: 1px solid gray;
+}
+
+.graf_in_box_c {
+	width: 600px;
+	height: 46px;
+	line-height: 46px;
+	float: left;
+	padding-left: 10px;
+}
+
+.graf_in_box_r {
+	width: 132px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	float: left;
+}
+
+.graf_in_back {
+	text-align: right;
+	margin-top: 5px;
+}
+
+
 /*--new-----------------------------------------------*/
 
 .graffiti_new {
 	width: 100%;
-	background-color: gold;
-}
-
-.graffiti_new_main {
-	width: 100%;
-	float: left;
-	background-color: lightsalmon;
+	height: 100vh;
 }
 
 .graffiti_new_box {
-	width: 50%;
-	margin: 15px auto;
-	background-color: ivory;
+	width: 500px;
+	margin: 0px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
 }
 
 .graffiti_new_head {
-	padding: 15px;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.graffiti_new_head b {
+	color: #028760;
+}
+
+.graffiti_new_image {
+	margin: 20px 0;
+}
+
+.graffiti_new_text p {
+	margin-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e8d3c7;
+}
+
+.image_pre {
+	width:300px;
 }
 
 /*--show------------------------------------------------*/
 
 .graf_box {
 	width: 100%;
-	margin: 20px auto;
-	background-color: lightsalmon;
+	margin: 5px auto;
 }
 
 .graf_main_box {
@@ -45,7 +150,7 @@
 
 .graf_text {
 	width: 100%;
-	padding: 5px 15px;
-	text-align: center;
-	background-color: gold;
+	margin-top: 5px;
+	padding: 10px 10px;
+	text-align: left;
 }

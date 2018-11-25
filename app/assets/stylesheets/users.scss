@@ -4,13 +4,45 @@
 
 .user_pass_edit {
 	width: 100%;
-	background-color: gold;
+	height: 100vh;
 }
 
 .user_pass_edit_main {
-	width: 80%;
-	float: left;
-	background-color: lightsalmon;
+	width: 500px;
+	margin: 0px auto 30px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #9d896c;
+	background-color: #fff;
+}
+
+.user_pass_head {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.user_pass_head b {
+	color: #028760;
+}
+
+.user_pass_text p {
+	margin-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e8d3c7;
+}
+
+.user_pass_back {
+	text-align: right;
+	padding-top: 10px;
 }
 
 /*-index--------------------------------------------------*/
@@ -25,62 +57,129 @@
 }
 
 .user_index_main {
-	width: 50%;
-	height: 60px;
-	margin: 20px auto;
-	background-color: lightsalmon;
+	width: 800px;
+	height: 50px;
+	margin: 10px auto;
+	background-color: #fff;
+	border-left: 10px solid #bfa46f;
 }
 
 .user_index_id {
-	width: 10%;
-	height: 60px;
-	line-height: 60px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
 	float: left;
-	background-color: red;
+	border-right: 1px dashed #bfa46f;
 }
 
 .user_index_image {
-	width: 15%;
-	height: 60px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
 	float: left;
-	background-color: gold;
+	border-right: 1px dashed #bfa46f;
 }
 
 .user_index_image2 {
-	width: 100%;
-	height: 60px;
+	width: 46px;
+	height: 46px;
 }
 
 .user_index_prof {
-	width: 55%;
-	height: 60px;
+	width: 540px;
+	height: 50px;
 	float: left;
-	background-color: lime;
 }
 
 .user_index_prof_name {
 	height: 20px;
 	line-height: 20px;
-	background-color: lime;
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
 }
 
 .user_index_prof_text {
-	height: 40px;
-	line-height: 40px;
-	background-color: green;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
 }
 
 .user_index_btn {
-	width: 20%;
-	height: 60px;
-	line-height: 60px;
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
 	float: left;
-	background-color: deepskyblue;
+	background-color: #fff;
 }
 
+/*-follow--------------------------------------------------*/
+
+.fol_box {
+	width: 620px;
+	margin: 20px auto 30px;
+	padding: 10px;
+	border: 1px solid #9d896c;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.fol_box_head {
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	background-image: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0ebaf 25%, #e0ebaf 50%,
+    #fff 50%, #fff 75%,
+    #e0ebaf 75%, #e0ebaf
+	);
+	background-size: 3px 3px;
+}
+
+.fol_box_head b {
+	color: #669900;
+}
+
+
+.user_fol_main:hover {
+	background-color: #e0ebaf;
+}
+
+.user_fol_main {
+	width: 600px;
+	height: 50px;
+	margin: 5px auto;
+	background-color: #fff;
+	border-left: 10px solid #bfa46f;
+}
+
+.fol_empty {
+	text-align: center;
+}
+
+.user_fol_name_l {
+	width: 360px;
+	float: left;
+}
+
+.user_fol_name_r {
+	width: 170px;
+	float: left;
+	text-align: right;
+	padding-right: 5px;
+}
 
 
 
