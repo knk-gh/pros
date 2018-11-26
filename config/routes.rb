@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'notices/index'
+  get 'notices/new'
+  get 'notices/create'
+  get 'notices/edit'
+  get 'notices/update'
+  get 'notices/destroy'
   get 'step_colors/update'
   get 'step_colors/destroy'
   get 'relationships/create'
@@ -52,5 +58,6 @@ Rails.application.routes.draw do
   resources :steps, only:[:create, :update, :destroy]
   resources :relationships, only:[:create,:destroy]
   resources :step_colors, only:[:update, :destroy]
+  resources :notices, only:[:index, :new, :create, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

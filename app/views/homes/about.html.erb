@@ -52,7 +52,7 @@
 			<% if user_signed_in? %>
 				<%= nil %>
 			<% else %>
-				<%= link_to "戻る", root_path, class: "pros_link" %>
+				<%= link_to "戻る", unauthenticated_root_path, class: "pros_link" %>
 			<% end %>
 		</div>
 

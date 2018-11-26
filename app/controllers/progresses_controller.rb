@@ -1,7 +1,10 @@
 class ProgressesController < ApplicationController
+  before_action :authenticate_user!
 
   require 'colormodule'
   include Color
+
+  before_action :correct_user, only: [:edit, :update]
 
   def index
   end
@@ -77,6 +80,13 @@ class ProgressesController < ApplicationController
         steps_attributes: [:id, :step_name, :_destroy],
         step_colors_attributes: [:id, :color, :_destroy]
         )
+    end
+
+    def correct_user
+    user = User.find(params[:id])
+      if current_user != user
+        redirect_to user_path(current_user)
+      end
     end
 
 

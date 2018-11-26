@@ -1,3 +1,11 @@
+#webticker {
+	background-color: #e0ebaf;
+}
+
+#webticker span {
+	color: #028760;;
+}
+
 .user_show {
 	width: 100%;
 	height: 100vh;
@@ -5,7 +13,7 @@
 
 .my_page {
 	width: 800px;
-	height: 250px;
+
 	margin: 0px auto;
 	padding: 10px;
 	border: 1px solid #9d896c;
@@ -47,14 +55,14 @@
 
 .my_page_r {
 	width: 588px;
-	height:230px;
+
 	float: left;
 	margin-left: 10px;
 }
 
 .my_info {
 	width: 100%;
-	height:130px;
+	min-height: 130px;
 	padding: 0 10px;
 	border-radius: 5px;
 	background-color: #e0ebaf;
@@ -93,9 +101,10 @@
 
 .my_info_prof {
 	width: 100%;
-	height: 80px;
+
 
 	margin-top: 5px;
+	padding-bottom: 3px;
 }
 
 .my_graf {

@@ -15,6 +15,21 @@
 				</div>
 			</div>
 		</div>
+	<% elsif pro.private == 1 && current_user.try(:admin?) %>
+		<div class="my_page_pro_box">
+			<div class="my_page_pro_t clearfix">
+				<div class="my_page_pro_t_l">
+					<%= link_to pro.work_name,  user_progress_path(user_id:@user.id, id:pro.id), class: "pros_link" %>
+				</div>
+				<div class="my_page_pro_t_c">
+					<p><b>締切日:</b>&nbsp;<%= pro.dead_line %></p>
+				</div>
+				<div class="my_page_pro_t_r">
+					<%= link_to "詳細",  user_progress_path(user_id:@user.id, id:pro.id), class: "btn-success btn-sm" %>
+					<%= link_to "削除",  user_progress_path(user_id:@user.id, id:pro.id), class: "btn-danger btn-sm", method: :delete, "data-confirm" => "削除しますか？" %>
+				</div>
+			</div>
+		</div>
 	<% elsif pro.private == 1 %>
 		<%= nil %>
 	<% else %>
@@ -27,7 +42,7 @@
 					<p><b>締切日:</b>&nbsp;<%= pro.dead_line %></p>
 				</div>
 				<div class="my_page_pro_t_r">
-					<% if @user == current_user %>
+					<% if @user == current_user || current_user.try(:admin?) %>
 						<%= link_to "詳細",  user_progress_path(user_id:@user.id, id:pro.id), class: "btn-success btn-sm" %>
 						<%= link_to "削除",  user_progress_path(user_id:@user.id, id:pro.id), class: "btn-danger btn-sm", method: :delete, "data-confirm" => "削除しますか？" %>
 					<% else %>

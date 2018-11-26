@@ -25,7 +25,7 @@
       {
         "lat": <%= @venue.latitude %>,
         "lng": <%= @venue.longitude %>,
-	  "infowindow": '<p><%= @venue.venue_name %></p><p><%= @venue.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@venue.latitude},#{@venue.longitude}&iwloc=J",target: "_blank" %></p>'
+	  "infowindow": '<p><%= @venue.venue_name %></p><p><%= @venue.postal_code %></p><p><%= @venue.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@venue.latitude},#{@venue.longitude}&iwloc=J",target: "_blank" %></p>'
       }
     ]);
     handler.bounds.extendWith(markers);

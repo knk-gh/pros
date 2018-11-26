@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   require 'progress'
+
+  before_action :correct_user, only: [:edit, :update, :following]
+
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(10)
   end
 
   def show
@@ -11,6 +15,7 @@ class UsersController < ApplicationController
     @print = Print.all
     @favorite_prints = FavoritePrint.where(user_id: @user.id)
     @favorite_venues = FavoriteVenue.where(user_id: @user.id)
+    @notices = Notice.all.order(id: :desc)
   end
 
   def edit
@@ -65,6 +70,13 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :user_image, :profile, :twitter_url, :pixiv_url, :status, :report)
+    end
+
+    def correct_user
+    user = User.find(params[:id])
+      if current_user != user
+        redirect_to user_path(current_user)
+      end
     end
 
 

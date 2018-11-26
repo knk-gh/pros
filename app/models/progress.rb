@@ -8,9 +8,16 @@ class Progress < ApplicationRecord
 
 # 昨日投稿された Post を取得
  	scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
+
 # validates-----------------------------------------------------------------------
 
 	validates :page, presence: true
+	validates :work_name, presence: true
+	validates :message, length: { maximum: 50}
+	validates :btn_color, presence: true
+	validates :dead_line, presence: true
+	validates :private, presence: true
+
 
 
 

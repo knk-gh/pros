@@ -1,4 +1,5 @@
 class HomesController < ApplicationController
+  before_action :authenticate_user!, only: [:useful, :search, :search_after, :pro_all, :goodbye]
   def index
   end
 
@@ -15,7 +16,7 @@ class HomesController < ApplicationController
   end
 
   def search
-    @progresses = Progress.all
+    @progresses = Progress.all.order(id: :desc)
     @users = User.where(status: 2).order('random()').limit(7).includes(:progresses)
     # @users = Post.all.includes(:places)
   end

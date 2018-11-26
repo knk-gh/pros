@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_064836) do
+ActiveRecord::Schema.define(version: 2018_11_26_121545) do
 
   create_table "favorite_prints", force: :cascade do |t|
     t.integer "user_id"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2018_11_25_064836) do
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "progress_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notices", force: :cascade do |t|
+    t.integer "category"
+    t.text "text"
+    t.integer "user_id"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -133,9 +142,9 @@ ActiveRecord::Schema.define(version: 2018_11_25_064836) do
 
   create_table "venues", force: :cascade do |t|
     t.string "venue_name"
-    t.integer "postal_code"
+    t.string "postal_code"
     t.text "address"
-    t.integer "tel"
+    t.string "tel"
     t.string "venue_url"
     t.float "latitude"
     t.float "longitude"

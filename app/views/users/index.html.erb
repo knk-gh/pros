@@ -1,27 +1,34 @@
 <div class="user_index">
-	<p class="user_index_h_p"><b>ユーザー一覧</b></p>
-
-	<% @users.each do |user| %>
-		<div class="user_index_main clearfix">
-			<div class="user_index_id">
-				<%= user.id %>
-			</div>
-			<div class="user_index_image">
-				<%= attachment_image_tag user, :user_image, :limit, '100%', '100%', fallback: "no_image.jpg", class: "user_index_image2" %>
-			</div>
-			<div class="user_index_prof">
-				<div class="user_index_prof_name">
-					<%= user.name %>
-				</div>
-				<div class="user_index_prof_text">
-					<%= truncate(user.profile, length: 40, omission: " ....") %>
-				</div>
-			</div>
-			<div class="user_index_btn">
-				<%= link_to "詳細", user_path(user.id), class: "btn btn-success" %>
-				<%= link_to "削除", user_path(user.id), class: "btn btn-danger", method: :delete, "data-confirm" => "このユーザーを削除しますか？" %>
-			</div>
+	<div class="user_in_box">
+		<div class="user_in_box_head">
+			<p><b>ユーザー一覧</b></p>
 		</div>
-	<% end %>
+
+		<% @users.each do |user| %>
+			<%= link_to user_path(user.id) do %>
+				<div class="user_index_main clearfix">
+					<div class="user_index_id">
+						<%= user.id %>
+					</div>
+					<div class="user_index_image">
+						<%= attachment_image_tag user, :user_image, :limit, '100%', '100%', fallback: "no_image.jpg", class: "user_index_image2" %>
+					</div>
+					<div class="user_index_prof">
+						<div class="user_index_prof_name">
+							<%= user.name %>
+						</div>
+						<div class="user_index_prof_text">
+							<%= truncate(user.profile, length: 40, omission: " ....") %>
+						</div>
+					</div>
+					<div class="user_index_btn">
+						<%= link_to "詳細", user_path(user.id), class: "btn btn-success" %>
+						<%= link_to "削除", user_path(user.id), class: "btn btn-danger", method: :delete, "data-confirm" => "このユーザーを削除しますか？" %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+		<%= paginate @users, class: "pagenate" %>
+	</div>
 
 </div>
