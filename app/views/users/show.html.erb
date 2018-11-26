@@ -1,4 +1,27 @@
 <%= stylesheet_link_tag 'users_show' %>
+<ul id="webticker" >
+		<li id='item1'>
+			本日は<span><%= Date.today %></span>です
+		</li>
+	<% @notices.first(5).each do |notice| %>
+		<li id='item2'>
+	  		<span>
+	  			<% if notice.category == 1 %>
+					お知らせ
+				<% elsif notice.category == 2 %>
+					新着記事
+				<% elsif notice.category == 3 %>
+					注目
+				<% end %>
+			</span>
+			<%= notice.text %>(<%= notice.created_at.strftime('%Y/%m/%d') %>)
+		</li>
+	<% end %>
+		<li id='item3'>
+			お知らせ一覧は
+			<%= link_to "こちら", notices_path, class: "pros_link" %>
+		</li>
+</ul>
 <div class="user_show">
 	<br>
 	<div class="my_page clearfix">
@@ -21,17 +44,17 @@
 				<div class="my_info_name clearfix">
 					<div class="my_info_name_l">
 						<b><%= @user.name %></b>
-						<% if @user.twitter_url.nil? %>
+						<% if @user.twitter_url.empty? %>
 							<%= nil %>
 						<% else %>
-							<%= link_to @user.twitter_url do %>
+							<%= link_to @user.twitter_url, target: "_blank" do %>
 								<img src="/assets/twitter_icon.png" class="sns_icon" >
 							<% end %>
 						<% end %>
-						<% if @user.pixiv_url.nil? %>
+						<% if @user.pixiv_url.empty? %>
 							<%= nil %>
 						<% else %>
-							<%= link_to @user.pixiv_url do %>
+							<%= link_to @user.pixiv_url, target: "_blank" do %>
 								<img src="/assets/logo_icon_r.png" class="sns_icon" >
 							<% end %>
 						<% end %>
@@ -92,7 +115,6 @@
 				<% end %>
 			</div>
 		</div>
-		
 	</div>
 
 	<div class="my_page_pro">
@@ -140,5 +162,12 @@
   </div>
 </section>
 
-
+<script>
+  $(function(){
+    $("#webticker").webTicker({
+    	hoverpause : true,
+    	height : '30px'
+    });
+  });
+</script>
 

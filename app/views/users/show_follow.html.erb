@@ -15,22 +15,22 @@
 						<div class="user_index_image">
 							<%= attachment_image_tag user, :user_image, :limit, '100%', '100%', fallback: "no_image.jpg", class: "user_index_image2" %>
 						</div>
-						<div class="user_index_prof">
-							<div class="user_index_prof_name pros_link clearfix">
+						<div class="user_fol">
+							<div class="user_fol_name pros_link clearfix">
 								<div class="user_fol_name_l">
 									<%= user.name %>
 								</div>
 								<div class="user_fol_name_r">
-									<% if @user.status == 1 %>
-										<p>未創作</p>
-									<% elsif @user.status == 2 %>
-										<p>創作中</p>
-									<% elsif @user.status == 3 %>
-										<p>ここを使う余裕すら無し</p>
+									<% if user.status == 1 %>
+										未創作
+									<% elsif user.status == 2 %>
+										創作中
+									<% elsif user.status == 3 %>
+										ここを使う余裕すら無し
 									<% end %>
 								</div>
 							</div>
-							<div class="user_index_prof_text">
+							<div class="user_fol_text">
 								<%= truncate(user.profile, length: 40, omission: " ....") %>
 							</div>
 						</div>

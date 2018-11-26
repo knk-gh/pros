@@ -17,7 +17,12 @@ class InquiriesController < ApplicationController
   def thanks
     @inquiry = Inquiry.new(inquiry_params)
     InquiryMailer.received_email(@inquiry).deliver
-    redirect_to user_path(current_user.id), notice:'メールを送信しました'
+    gon.url = unauthenticated_root_path
+    if user_signed_in?
+      redirect_to user_path(current_user.id), notice:'メールを送信しました'
+    else
+      render :action => 'thanks'
+    end
   end
 
 # --------------------------------------------------------------------------------

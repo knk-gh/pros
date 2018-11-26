@@ -1,0 +1,27 @@
+<div class="not_new">
+	<div class="not_new_box">
+		<div class="not_new_box_head">
+			<p><b>サイトニュース編集</b></p>
+		</div>
+
+		<%= form_for(@notice) do |f| %>
+			<% if @notice.errors.any? %>
+        		<%= @notice.errors.count %>件のエラーが発生しました
+        		<% @notice.errors.full_messages.each do |message| %>
+           	 		<%= message %>
+        		<% end %>
+    		<% end %>
+			<div class="not_new_text">
+				<p><b>カテゴリー</b></p>
+				<%= f.select :category, [["お知らせ", 1], ["新着記事", 2],  ["注目", 3]], autofocus: true, autocomplete: 'category',:prompt => "選択してください" %>
+			</div>
+			<div class="not_new_text">
+				<p><b>内容</b></p>
+				<%= f.text_area :text, autofocus: true, autocomplete: 'company', class: "form-control" %>
+			</div><br>
+			<div class="not_new_btn">
+				<%= f.submit '更新', class: "btn btn-success form-control" %>
+			</div>
+		<% end %>
+	</div>
+</div>

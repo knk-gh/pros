@@ -28,13 +28,13 @@
 					<%= link_to user_progress_path(user_id: progress.user.id, id: progress.id) do %>
 						<div class="progress_index_latest_box clearfix">
 							<div class="progress_index_latest_l">
-								<p>締切日：<%= progress.dead_line %></p>
+								締切日：<%= progress.dead_line %>
 							</div>
 							<div class="progress_index_latest_c">
-								<p><%= truncate(progress.message, length: 40, omission: " ....") %></p>
+								<%= truncate(progress.message, length: 40, omission: " ....") %>
 							</div>
 							<div class="progress_index_latest_r">
-								<p>by&nbsp;<%= progress.user.name %></p>
+								by&nbsp;<%= progress.user.name %>
 							</div>
 						</div>
 					<% end %>
@@ -47,20 +47,20 @@
 
 			<div class="progress_index_latest">
 				<div class="progress_index_latest_head">
-					<p><b>創作中のユーザー（ランダム７件）</b></p>
+					<p><b>創作中のユーザー（ランダム７名）</b></p>
 				</div>
 				<% @users.each do |user| %>
 					<% user.progresses.each do |pro| %>
 						<%= link_to user_progress_path(user_id: pro.user.id, id: pro.id) do %>
 							<div class="progress_index_latest_box clearfix">
 								<div class="progress_index_latest_l">
-									<p>締切日：<%= pro.dead_line %></p>
+									締切日：<%= pro.dead_line %>
 								</div>
 								<div class="progress_index_latest_c">
-									<p><%= truncate(pro.message, length: 40, omission: " ....") %></p>
+									<%= truncate(pro.message, length: 40, omission: " ....") %>
 								</div>
 								<div class="progress_index_latest_r">
-									<p>by&nbsp;<%= pro.user.name %></p>
+									by&nbsp;<%= pro.user.name %>
 								</div>
 							</div>
 						<% end %>

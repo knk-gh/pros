@@ -1,6 +1,6 @@
 class PrintsController < ApplicationController
+  before_action :authenticate_user!
   def new
-    @userme = current_user
     @print = Print.new
   end
 
@@ -15,7 +15,6 @@ class PrintsController < ApplicationController
   end
 
   def edit
-    @userme = current_user
     @print = Print.find(params[:id])
   end
 
