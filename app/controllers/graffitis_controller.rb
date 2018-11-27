@@ -3,7 +3,7 @@ class GraffitisController < ApplicationController
 
   def index
     @user  = User.find(params[:user_id])
-    @graffitis = Graffiti.where(user_id: @user.id).page.per(10).order(id: :desc)
+    @graffitis = @user.graffitis.page(params[:page]).per(10).order(id: :desc)
   end
 
   def show
