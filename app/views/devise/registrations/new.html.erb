@@ -5,7 +5,7 @@
         <div class="theTarget">
             <div class="signpage_item">
               <p class="signpage_item_head">進歩状況を目に見える形で</p>
-              <div class="guide_image_box"><img src="/assets/guide05.jpg" class="guide_image"></div>
+              <div class="guide_image_box"><img src="/images/guide05.jpg" class="guide_image"></div>
               <p>その人ごとに必要な工程を入力、<br>表と％ゲージにて進歩がわかりやすい。</p>
             </div>
             <div class="signpage_item">
@@ -78,5 +78,25 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function () {
+
+$(".theTarget").skippr({
+
+    transition : 'fade',
+    speed : 100,
+    easing : 'easeOutQuart',
+    navType : 'bubble',
+    childrenElementType : 'div',
+    arrows : false,
+    autoPlay : true,
+    autoPlayDuration : 5000,
+    keyboardOnAlways : true,
+    hidePrevious : false
+});
+
+});
+</script>
 
 
