@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   resources :users, only:[:index, :show, :edit, :update, :destroy] do
     resources :graffitis, only:[:index, :show, :new, :create, :destroy]
-    resources :progresses do
+    resources :progresses, only:[:edit, :show, :new, :create, :update, :destroy] do
       resource :likes, only: [:create, :destroy]
       resource :worries, only: [:create, :destroy]
     end

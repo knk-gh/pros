@@ -6,9 +6,6 @@ class ProgressesController < ApplicationController
 
   before_action :correct_user, only: [:edit, :update]
 
-  def index
-  end
-
   def show
     @user = User.find(params[:user_id])
     @progress = Progress.find(params[:id])
