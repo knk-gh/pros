@@ -12,11 +12,9 @@ class User < ApplicationRecord
   validates :name, presence: true,
                   length: { in: 1..15 }
   validates :email, presence: true
-  validates :profile, presence: true,
-                    length: { maximum: 300}
+  validates :profile, length: { maximum: 300}
   validates :status, presence: true
-  validates :report, presence: true,
-                    length: { maximum: 45}
+  validates :report, length: { maximum: 45}
 
 
 # has_many-belongs_to-------------------------------------------------------------
