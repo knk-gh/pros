@@ -11,7 +11,7 @@
 						<%= user.id %>
 					</div>
 					<div class="user_index_image">
-						<%= attachment_image_tag user, :user_image, :limit, '100%', '100%', fallback: "no_image.jpg", class: "user_index_image2" %>
+						<%= attachment_image_tag user, :user_image, fallback: "no_image.jpg", class: "user_index_image2" %>
 					</div>
 					<div class="user_index_prof">
 						<div class="user_index_prof_name">

@@ -4,9 +4,5 @@ class StepColor < ApplicationRecord
 
 	belongs_to :progress, optional: true
 
-# validates-----------------------------------------------------------------------
-
-	validates :step_name, presence: true,
-						length: { in: 1..7 }
 
 end

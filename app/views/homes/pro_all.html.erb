@@ -11,19 +11,19 @@
 					<%= link_to user_progress_path(user_id: progress.user.id, id: progress.id) do %>
 						<div class="progress_index_latest_box clearfix">
 							<div class="progress_index_latest_l">
-								<p>締切日：<%= progress.dead_line %></p>
+								締切日：<%= progress.dead_line %>
 							</div>
 							<div class="progress_index_latest_c">
-								<p><%= truncate(progress.message, length: 40, omission: " ....") %></p>
+								<%= truncate(progress.message, length: 40, omission: " ....") %>
 							</div>
 							<div class="progress_index_latest_r">
-								<p>by&nbsp;<%= progress.user.name %></p>
+								by&nbsp;<%= progress.user.name %>
 							</div>
 						</div>
 					<% end %>
 				<% end %>
 				<div class="pro_all_back">
-					<%= link_to "戻る", :back, class: "pros_link" %>
+					<%= link_to "戻る", homes_search_path, class: "pros_link" %>
 				</div>
 
 			</div>
