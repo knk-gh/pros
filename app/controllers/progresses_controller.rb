@@ -11,12 +11,10 @@ class ProgressesController < ApplicationController
     @progress = Progress.find(params[:id])
     @step = Step.where(progress_id: @progress.id)
     @yoko = @progress.steps.count * 104
-    # ↓プログレスバー
     all_step_colors_count = @progress.step_colors.count
     progress_count = StepColor.where(progress_id: @progress.id, color: 1).count
     @answer_valuenow = progress_count.to_f / all_step_colors_count.to_f * 100
     gon.answer_valuenow = @answer_valuenow
-    # ↓カウントダウン
     gon.time = @progress.dead_line
   end
 
@@ -40,7 +38,6 @@ class ProgressesController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @progress = Progress.find(params[:id])
-    @step_color = StepColor.find(@progress.id)
     @step = Step.where(progress_id: @progress.id)
     @yoko = @progress.steps.count * 104
     @prowid = @yoko + 50
@@ -80,7 +77,7 @@ class ProgressesController < ApplicationController
     end
 
     def correct_user
-    user = User.find(params[:id])
+    user = User.find(params[:user_id])
       if current_user != user
         redirect_to user_path(current_user)
       end

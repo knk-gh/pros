@@ -16,9 +16,8 @@ class HomesController < ApplicationController
   end
 
   def search
-    @progresses = Progress.all.order(id: :desc)
-    @users = User.where(status: 2).order('random()').limit(7).includes(:progresses)
-    # @users = Post.all.includes(:places)
+    @progresses = Progress.where(private: 0).order(id: :desc)
+    @users = User.eager_load(:progresses).where(status: 2).where("progresses.private <= ?", 0).order('random()').limit(7).includes(:progresses)
   end
 
   def search_after
@@ -27,7 +26,7 @@ class HomesController < ApplicationController
   end
 
   def pro_all
-    @progresses = Progress.page(params[:page]).page.per(15).order(id: :desc)
+    @progresses = Progress.where(private: 0).page(params[:page]).page.per(15).order(id: :desc)
   end
 
 

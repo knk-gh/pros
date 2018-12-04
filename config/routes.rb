@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'step_colors/destroy'
   get 'relationships/create'
   get 'relationships/destroy'
-  # root to: 'users/registrations#new'
 
 
   devise_for :users
@@ -31,10 +30,6 @@ Rails.application.routes.draw do
   get '/i_show' => 'progresses#iframe_show', as:'i_show'
   get '/i_edit' => 'progresses#iframe_edit', as:'i_edit'
 
-
-  # get 'inquiries/index'
-  # get 'inquiries/confirm'
-  # get 'inquiries/thanks'
   get 'inquiries' => 'inquiries#index'
   post 'inquiries/confirm' => 'inquiries#confirm'
   post 'inquiries/thanks' => 'inquiries#thanks'

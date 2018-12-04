@@ -9,7 +9,6 @@ class GraffitisController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @graffiti = Graffiti.find(params[:id])
-    # .order(id: :desc)
     render layout: false
   end
 
