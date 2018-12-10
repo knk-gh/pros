@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_121545) do
+ActiveRecord::Schema.define(version: 2018_12_10_162207) do
 
   create_table "favorite_prints", force: :cascade do |t|
     t.integer "user_id"
@@ -146,8 +146,8 @@ ActiveRecord::Schema.define(version: 2018_11_26_121545) do
     t.text "address"
     t.string "tel"
     t.string "venue_url"
-    t.float "latitude"
-    t.float "longitude"
+    t.decimal "latitude", precision: 10, scale: 7
+    t.decimal "longitude", precision: 10, scale: 7
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
